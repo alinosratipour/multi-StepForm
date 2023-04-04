@@ -8,11 +8,7 @@ body{
   font-size: 16px;
 }
 
-@font-face {
-  font-family:headerFont ;
-  src: url('./assets/fonts/Ubuntu-Bold.ttf') format('woff');
-  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('woff')
-}
+
 h1{
   color: #002855;
   font-family: headerFont;
@@ -66,4 +62,8 @@ align-items: center;
   margin: auto;
   width: 70%;
   
+}
+
+.form-text-fields-container{
+  font-family: headerFont;
 }

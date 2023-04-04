@@ -23,12 +23,17 @@ function App() {
                 <TextField
                   label="Name"
                   name="name"
-                  placeholder="e.g Stephen King"
+                  placeholder="e.g. Stephen King"
                 />
                 <EmailField
                  label="Email"
                  email="email"
-                 placeholder="e.g Stephenking@lorem.com"
+                 placeholder="e.g. Stephenking@lorem.com"
+                />
+                 <TextField
+                  label="Phone Number"
+                  name="name"
+                  placeholder="e.g. 1 234 567 890"
                 />
               </div>
             </div>
