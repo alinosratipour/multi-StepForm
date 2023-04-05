@@ -11,4 +11,6 @@ input{
     border-color: #dbdadf;
     border: 1px solid #ccc;
     outline: none;
+    width: 85%;
+    font-weight: 700;
 }
