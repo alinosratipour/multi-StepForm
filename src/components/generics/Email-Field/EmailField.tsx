@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from "react";
-import "./EmailField.css";
+import "./EmailField.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   email: string;

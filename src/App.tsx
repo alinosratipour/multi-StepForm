@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import MultiStepWindow from "./components/generics/MultiStepWindow/MultiStepWindow";
 
 function App() {

@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from "react";
-import "./TextField.css";
+import "./TextField.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;

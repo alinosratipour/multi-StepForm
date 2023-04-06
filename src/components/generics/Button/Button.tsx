@@ -1,58 +1,38 @@
-import React, { ForwardRefRenderFunction, HTMLAttributes } from "react";
-import classNames from "classnames";
-import "./Button.css";
+import React, { ButtonHTMLAttributes, ForwardRefRenderFunction } from "react";
+import "./Button.scss";
 
-interface ButtontProps extends HTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+interface ButtontProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled?: boolean;
-  className?: string;
-  border?: string;
-  bgcolor?: string;
-  color?: string;
-  padding?: string;
-  height?: string;
-  radius?: string;
-  width?: string;
-  cursor?: string;
-  ref: string;
+  buttonType: string;
+  ref?: React.Ref<HTMLButtonElement>;
+}
+
+const BUTTON_TYPE_CLASSES: ButtonTypeIndex = {
+  darkblue: 'primary',
+  lightblue: 'secondery',
+  isDisabled: 'disabled'
+};
+
+interface ButtonTypeIndex {
+  [props: string]: string;
 }
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtontProps> = (
-  {
-    onClick,
-    children,
-    padding,
-    bgcolor,
-    disabled,
-    className,
-    radius,
-    width,
-    height,
-    cursor,
-    border,
-    color,
-    ...otherProps
-  },
+  { onClick, children, disabled, buttonType, ...otherProps },
   ref
 ) => {
   return (
-    <button
-      {...otherProps}
-      style={{
-        backgroundColor: bgcolor,
-        border,
-        borderRadius: radius,
-        height,
-        width,
-        color,
-        padding,
-        cursor,
-      }}
+    <button      
       disabled
+      onClick={onClick}
+      className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
       ref={ref}
+      {...otherProps}
     >
       {children}
+     
     </button>
   );
 };
