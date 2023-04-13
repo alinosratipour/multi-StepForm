@@ -1,10 +1,10 @@
 import React from "react";
-import CustomButton from "../Button/Button";
+import CustomButton from "../Button/NewButton";
 import EmailField from "../Email-Field/EmailField";
 import TextField from "../Text-Field/TextField";
 import "./MultiStepWindow.scss";
 
-const MultiStepWindow =() =>{
+const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
   return (
     <div className="container">
@@ -37,15 +37,25 @@ const MultiStepWindow =() =>{
                 />
               </div>
               <div className="button-wrapper">
-                <CustomButton
+                {/* <CustomButton
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
-                  buttonType='darkblue'
+                  buttonType="primary"
                   disabled
                   ref={ref}
                 >
                   Next Step
+                </CustomButton> */}
+                <CustomButton
+                  size="lg"
+                  colorscheme="blue"
+                  ref={ref}
+                  onClick={() =>
+                    console.log("You clicked on the yellow square!")
+                  }
+                >
+                  next
                 </CustomButton>
               </div>
             </div>
@@ -54,6 +64,6 @@ const MultiStepWindow =() =>{
       </div>
     </div>
   );
-}
+};
 
 export default MultiStepWindow;
