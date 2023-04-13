@@ -1,47 +1,9 @@
-// .button-container {
-//   min-width: 50px;
-//   width: auto;
-//   padding:  10px;
-//   font-size: 16px;
-//   background-color: hsl(213, 96%, 18%);
-//   color: white;
-//   font-family: headerFont;
-//   font-weight: 400;
-//   border: none;
-//   border-radius: 5px;
-//   margin-right: 60px;
-//   cursor: pointer;
-
-//   &:hover {
-//     background-color: rgb(61, 61, 246);
-//   }
-
-//   &.button--orange{
-//     background-color: #4285f4;
-//     color: white;
-
-//     &:hover {
-//       background-color: #357ae8;
-//       border: none;
-//     }
-//   }
-//   &.disabled{
-//     background-color: lightgrey;
-//     cursor: not-allowed;
-//   }
-//   &.size{
-//   width: 200px;
-//   height: 200px;
-//   }
-
-// }
-
 .button {
   min-width: 50px;
   width: auto;
   padding: 10px;
   font-size: 16px;
-  background-color: hsl(213, 96%, 18%);
+  background-color: hsl(187, 94%, 52%);
   color: white;
   font-family: headerFont;
   font-weight: 400;
@@ -49,37 +11,47 @@
   border-radius: 5px;
   margin-right: 60px;
   cursor: pointer;
-}
-// button sizes
-.button--small {
-  height: 20px;
-  width: 60px;
-}
-.button--medium {
-  height: 40px;
-  width: 80px;
-}
-.button--large {
-  height: 60px;
-  width: 120px;
-}
 
-// button colorScheme
-.button--primary {
-  background-color: rgb(10, 136, 232);
-}
-.button--primary:hover {
-  background-color: aqua;
-}
-.button--secondery {
-  background-color: rgb(8, 30, 228);
-}
-.button--secondery:hover {
-  background-color: rgb(95, 110, 244);
-}
-.button--whatsApp {
-  background-color: rgb(48, 158, 48);
-}
-.button--whatsApp:hover {
-  background-color: rgb(77, 248, 77);
+  // button sizes
+  &.button--small {
+    height: 20px;
+    width: 60px;
+  }
+  &.button--medium {
+    height: 40px;
+    width: 80px;
+  }
+  &.button--large {
+    height: 60px;
+    width: 120px;
+  }
+
+  // button colorScheme
+  &.button--primary {
+    background-color: hsl(213, 96%, 18%);
+
+    &:hover {
+      background-color: #357ae8;
+      border: none;
+    }
+  }
+
+  &.button--secondery {
+    background-color: rgb(8, 30, 228);
+    &:hover {
+      background-color: rgb(95, 110, 244);
+    }
+  }
+
+  &.button--whatsApp {
+    background-color: rgb(48, 158, 48);
+    &:hover {
+      background-color: rgb(77, 248, 77);
+    }
+  }
+
+  &.button--disabled:disabled {
+    background-color: rgb(182, 179, 179);
+    cursor: not-allowed;
+  }
 }

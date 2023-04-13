@@ -1,4 +1,5 @@
 import React from "react";
+import { FaBeer } from 'react-icons/fa';
 import CustomButton from "../Button/NewButton";
 import EmailField from "../Email-Field/EmailField";
 import TextField from "../Text-Field/TextField";
@@ -38,15 +39,18 @@ const MultiStepWindow = () => {
               </div>
               <div className="button-wrapper">
                 <CustomButton
+                
+                  colorscheme="primary"
                   size="md"
-                  colorscheme="whatsApp"
+                 // icon={<FaBeer/>}
                   ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
                 >
-                  Next
+                  Next 
                 </CustomButton>
+                {/* <DefaultHeader iconLeft={{ icon: <Camera /> }} /> */}
               </div>
             </div>
           </div>
