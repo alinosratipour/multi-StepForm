@@ -37,25 +37,15 @@ const MultiStepWindow = () => {
                 />
               </div>
               <div className="button-wrapper">
-                {/* <CustomButton
-                  onClick={() =>
-                    console.log("You clicked on the yellow square!")
-                  }
-                  buttonType="primary"
-                  disabled
-                  ref={ref}
-                >
-                  Next Step
-                </CustomButton> */}
                 <CustomButton
-                  size="lg"
-                  colorscheme="blue"
+                  size="md"
+                  colorscheme="whatsApp"
                   ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
                 >
-                  next
+                  Next
                 </CustomButton>
               </div>
             </div>
