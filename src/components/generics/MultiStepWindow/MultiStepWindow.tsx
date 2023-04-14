@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBeer } from 'react-icons/fa';
+import { VscChevronRight,VscChevronLeft } from "react-icons/vsc";
 import CustomButton from "../Button/NewButton";
 import EmailField from "../Email-Field/EmailField";
 import TextField from "../Text-Field/TextField";
@@ -42,7 +42,7 @@ const MultiStepWindow = () => {
                 
                   colorscheme="primary"
                   size="md"
-                 // icon={<FaBeer/>}
+                  icon={<VscChevronRight size={20} style={{float:"right"}}/>}
                   ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
@@ -50,7 +50,7 @@ const MultiStepWindow = () => {
                 >
                   Next 
                 </CustomButton>
-                {/* <DefaultHeader iconLeft={{ icon: <Camera /> }} /> */}
+               
               </div>
             </div>
           </div>

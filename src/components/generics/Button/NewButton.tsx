@@ -13,18 +13,12 @@ interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
   colorscheme?: string | null;
   size?: string | null;
   disabled?: boolean;
-  //   iconLeft?: {
-  //     icon: JSX.Element;
-  //     url?: string;
-  //     state?: string;
-  //     label?: string;
-  // };
-  icon?: JSX.Element;
+  icon?: ReactElement;
   ref?: React.Ref<HTMLButtonElement>;
 }
 
 const NewButton: ForwardRefRenderFunction<HTMLButtonElement, ButtonType> = (
-  { children, colorscheme, size, disabled, icon, onClick },
+  { children, colorscheme, size, disabled, icon, onClick, ...otherProps },
   ref
 ) => {
   const buttonClasses = classNames("button", {
@@ -39,13 +33,15 @@ const NewButton: ForwardRefRenderFunction<HTMLButtonElement, ButtonType> = (
   return (
     <button
       ref={ref}
+      {...otherProps}
       disabled={disabled}
-      icon={icon}
       className={buttonClasses}
       onClick={onClick}
     >
+      {icon}
       {children}
     </button>
+    
   );
 };
 

@@ -54,4 +54,11 @@
     background-color: rgb(182, 179, 179);
     cursor: not-allowed;
   }
+  &.button--icon{
+  color: yellow;
+  margin-top: 140px;
+  background-color: chartreuse;
+  width: 20px;
+  }
+
 }
