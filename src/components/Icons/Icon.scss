@@ -1,0 +1,47 @@
+.svg {
+  
+  &.arrow-icon-sm {
+     width: 22px;
+      height: 22px;
+    &.icon-direction-right {
+      position: relative;
+      right: -20px;
+    }
+    &.icon-direction-left {
+     
+      position: relative;
+      left: -20px;
+      transform: rotate(180deg);
+    }
+  }
+  
+  &.arrow-icon-md {
+    width: 30px;
+    height: 30px;
+    &.icon-direction-right {
+      position: relative;
+      right: -20px;
+    }
+    &.icon-direction-left {
+     
+      transform: rotate(180deg);
+      position: relative;
+      left: -20px;
+    }
+  }
+ 
+  &.arrow-icon-lg {
+     width: 40px;
+      height: 40px;
+    &.icon-direction-right {
+      position: relative;
+      right: -20px;
+      
+    }
+    &.icon-direction-left {
+      position: relative;
+      left: -20px;
+      transform: rotate(180deg);
+    }
+  }
+}

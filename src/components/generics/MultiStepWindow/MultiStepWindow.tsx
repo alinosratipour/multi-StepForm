@@ -1,9 +1,11 @@
 import React from "react";
-import { VscChevronRight,VscChevronLeft } from "react-icons/vsc";
+import { VscChevronRight, VscChevronLeft } from "react-icons/vsc";
 import CustomButton from "../Button/NewButton";
 import EmailField from "../Email-Field/EmailField";
 import TextField from "../Text-Field/TextField";
 import "./MultiStepWindow.scss";
+import ArrowRight from "../../Icons/ArrowRight";
+import ArrowIcon from "../../Icons/ArrowIcon";
 
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
@@ -12,7 +14,7 @@ const MultiStepWindow = () => {
       <div className="form-wraper">
         <div className="form-content-wrapper">
           <div className="form-content">
-            <div className="form-left-side">gghgh</div>
+            <div className="form-left-side">dummy text</div>
             <div className="form-right-side">
               <div className="form-header">
                 <h1>Personal Info</h1>
@@ -39,18 +41,17 @@ const MultiStepWindow = () => {
               </div>
               <div className="button-wrapper">
                 <CustomButton
-                
                   colorscheme="primary"
                   size="md"
-                  icon={<VscChevronRight size={20} style={{float:"right"}}/>}
-                  ref={ref}
+                   iconPosition="right"
+                   icon={<ArrowIcon size="medium"  color="white" pos="right"/>}
+                   ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
                 >
-                  Next 
+                  Next
                 </CustomButton>
-               
               </div>
             </div>
           </div>
