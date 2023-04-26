@@ -23,28 +23,19 @@
   &.button--small {
     height:40px;
     width: 100px;
-    font-size: 16px;
+    font-size: 12px;
    
   }
   &.button--medium {
-    height: 60px;
-    width: 120px;
-    font-size: 20px;
-    .div{
-      margin-right: 6px;
-      font-size: 25px;
-    
-    }
+    height: 40px;
+    width: 110px;
+    font-size: 14px;
+
   }
   &.button--large {
-    height: 80px;
-    width: 140px;
-    font-size: 26px;
-    .div{
-      margin-right: 6px;
-      font-size: 25px;
-    
-    }
+    height: 50px;
+    width: 160px;
+    font-size: 16px;
    
   }
 

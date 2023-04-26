@@ -5,43 +5,41 @@
       height: 22px;
     &.icon-direction-right {
       position: relative;
-      right: -20px;
+      right: -12px;
     }
     &.icon-direction-left {
-     
-      position: relative;
-      left: -20px;
       transform: rotate(180deg);
+      position: relative;
+      left: -12px;
     }
   }
   
   &.arrow-icon-md {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     &.icon-direction-right {
       position: relative;
-      right: -20px;
+      right: -15px;
     }
     &.icon-direction-left {
-     
       transform: rotate(180deg);
       position: relative;
-      left: -20px;
+      left: -15px;
     }
   }
  
   &.arrow-icon-lg {
-     width: 40px;
-      height: 40px;
+     width: 30px;
+      height: 30px;
     &.icon-direction-right {
       position: relative;
-      right: -20px;
+      right: -30px;
       
     }
     &.icon-direction-left {
-      position: relative;
-      left: -20px;
       transform: rotate(180deg);
+      position: relative;
+      left: -30px;
     }
   }
 }

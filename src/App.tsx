@@ -1,5 +1,5 @@
 import "./App.scss";
-import MultiStepWindow from "./components/generics/MultiStepWindow/MultiStepWindow";
+import MultiStepWindow from "./components/MultiStepWindow/MultiStepWindow";
 
 function App() {
   return (

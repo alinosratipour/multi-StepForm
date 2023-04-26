@@ -1,0 +1,59 @@
+.circle{
+    display: flex;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      font-weight:900;
+      color: #fff;
+      border: 1px solid white;
+     
+      
+    }
+
+.steperWrapper{
+
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 50px;
+    padding-right: 20px;
+    color: #bab4b4;
+    font-size: 15px;
+
+}
+.stepBlock {
+    display: flex;
+    gap: 30px;
+    
+}
+
+
+.step{
+    display: flex;
+
+   
+}
+.StepsLabelWrapper{
+   display: flex;
+    flex-direction: column;
+    
+}
+
+
+.stepNumber{
+    font-family: headerFont;
+    color: #bab4b4;
+    font-size: 12px;
+   }
+
+   .stepInfo{
+    font-family: headerFont;
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    padding-top: 5px;
+
+   }

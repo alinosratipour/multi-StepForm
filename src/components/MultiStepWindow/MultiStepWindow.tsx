@@ -1,20 +1,37 @@
-import React from "react";
-import { VscChevronRight, VscChevronLeft } from "react-icons/vsc";
-import CustomButton from "../Button/NewButton";
-import EmailField from "../Email-Field/EmailField";
-import TextField from "../Text-Field/TextField";
+import React,{useState }from "react";
+import CustomButton from "../generics/Button/NewButton";
+import EmailField from "../generics/Email-Field/EmailField";
+import TextField from "../generics/Text-Field/TextField";
 import "./MultiStepWindow.scss";
-import ArrowRight from "../../Icons/ArrowRight";
-import ArrowIcon from "../../Icons/ArrowIcon";
+import "../stepper/steper.scss";
+import StepNavigation from "../stepper/StepNavigation";
+
+
 
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
+  const [currentStep, setCurrentStep]= useState(1);
+
+
+const stepText = {
+  'STEP 1': 'YOUR INFO',
+  'STEP 2': 'SELECTED PLAN',
+  'STEP 3': 'ADD-ONS',
+  'STEP 4':'SUMMARY',
+
+}
+
   return (
     <div className="container">
       <div className="form-wraper">
         <div className="form-content-wrapper">
           <div className="form-content">
-            <div className="form-left-side">dummy text</div>
+            <div className="form-left-side">
+            
+   
+                <StepNavigation stepNumberArray={stepText}   currentStep={currentStep}></StepNavigation>
+            
+            </div>   
             <div className="form-right-side">
               <div className="form-header">
                 <h1>Personal Info</h1>
@@ -43,14 +60,12 @@ const MultiStepWindow = () => {
                 <CustomButton
                   colorscheme="primary"
                   size="md"
-                   iconPosition="right"
-                   icon={<ArrowIcon size="medium"  color="white" pos="right"/>}
                    ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
                 >
-                  Next
+                  Next Step
                 </CustomButton>
               </div>
             </div>
