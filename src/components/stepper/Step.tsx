@@ -1,24 +1,27 @@
+import "./steper.scss";
 
-import Reac,{useState} from 'react'
-import StepName from './StepName'
-import './steper.scss';
-
-const Step = ({stepNumber,index,StepName, num}) => {
-  return (
-    <div className='stepBlock'>
-        <div className='circlWrapper'>
-        <div  className="circle" >{index + 1}</div>
-        </div>
-        <div >
-           <div>
-          <div className='StepsLabelWrapper'><span className='stepNumber'>{num}</span> <span className='stepInfo'>{stepNumber}</span> </div>
-         
-          </div>
-     
-        </div>
-       
-    </div>
-  )
+interface Props {
+  stepInfo: string;
+  index: number;
+  stepNumber: string;
 }
 
-export default Step
+const Step = ({ stepInfo, index, stepNumber }: Props) => {
+  return (
+    <div className="stepBlock">
+      <div className="circlWrapper">
+        <div className="circle">{index + 1}</div>
+      </div>
+      <div>
+        <div>
+          <div className="StepsLabelWrapper">
+            <span className="stepNumberText">{stepNumber}</span>{" "}
+            <span className="stepInfo">{stepInfo}</span>{" "}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Step;

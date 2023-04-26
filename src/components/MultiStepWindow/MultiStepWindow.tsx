@@ -1,4 +1,4 @@
-import React,{useState }from "react";
+import React, { useState } from "react";
 import CustomButton from "../generics/Button/NewButton";
 import EmailField from "../generics/Email-Field/EmailField";
 import TextField from "../generics/Text-Field/TextField";
@@ -6,20 +6,16 @@ import "./MultiStepWindow.scss";
 import "../stepper/steper.scss";
 import StepNavigation from "../stepper/StepNavigation";
 
-
-
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
-  const [currentStep, setCurrentStep]= useState(1);
+  const [currentStep, setCurrentStep] = useState(1);
 
-
-const stepText = {
-  'STEP 1': 'YOUR INFO',
-  'STEP 2': 'SELECTED PLAN',
-  'STEP 3': 'ADD-ONS',
-  'STEP 4':'SUMMARY',
-
-}
+  const stepText = {
+    "STEP 1": "YOUR INFO",
+    "STEP 2": "SELECTED PLAN",
+    "STEP 3": "ADD-ONS",
+    "STEP 4": "SUMMARY",
+  };
 
   return (
     <div className="container">
@@ -27,11 +23,11 @@ const stepText = {
         <div className="form-content-wrapper">
           <div className="form-content">
             <div className="form-left-side">
-            
-   
-                <StepNavigation stepNumberArray={stepText}   currentStep={currentStep}></StepNavigation>
-            
-            </div>   
+              <StepNavigation
+                stepNumberArray={stepText}
+                currentStep={currentStep}
+              ></StepNavigation>
+            </div>
             <div className="form-right-side">
               <div className="form-header">
                 <h1>Personal Info</h1>
@@ -60,7 +56,7 @@ const stepText = {
                 <CustomButton
                   colorscheme="primary"
                   size="md"
-                   ref={ref}
+                  ref={ref}
                   onClick={() =>
                     console.log("You clicked on the yellow square!")
                   }
