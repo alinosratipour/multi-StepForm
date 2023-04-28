@@ -73,6 +73,7 @@ p {
   color: hsl(213, 96%, 18%);
   font-weight: 700;
   font-size: 16px;
+  min-height: 400px;
 }
 
 .button-wrapper {
@@ -87,3 +88,6 @@ p {
   border-radius: 10px;
 }
 
+.step1{
+  display: none;
+}

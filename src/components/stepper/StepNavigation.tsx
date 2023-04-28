@@ -5,7 +5,7 @@ interface Steps {
   [steps: string]: any;
 }
 
-const StepNavigation = ({ stepNumberArray }: Steps) => {
+const StepNavigation = ({ stepNumberArray,updateStep,currentStep }: Steps) => {
   return (
     <div className="steperWrapper">
       {Object.keys(stepNumberArray).map((key, index) => (
@@ -14,6 +14,8 @@ const StepNavigation = ({ stepNumberArray }: Steps) => {
           index={index}
           stepNumber={key}
           stepInfo={stepNumberArray[key]}
+          updateStep={updateStep}
+          selected={currentStep === index + 1}
         ></Step>
       ))}
     </div>

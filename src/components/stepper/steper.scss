@@ -23,6 +23,12 @@
 .stepBlock {
   display: flex;
   gap: 30px;
+  &.selected .circle{
+    color: black;
+    background-color: rgb(141, 207, 248);
+    border: none;
+  
+  }
 }
 
 .step {

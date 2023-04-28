@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import CustomButton from "../generics/Button/NewButton";
-import EmailField from "../generics/Email-Field/EmailField";
-import TextField from "../generics/Text-Field/TextField";
 import "./MultiStepWindow.scss";
 import "../stepper/steper.scss";
 import StepNavigation from "../stepper/StepNavigation";
+ import { If } from 'tsx-control-statements/components';
+import Step1 from "./Step1";
 
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
@@ -29,37 +29,19 @@ const MultiStepWindow = () => {
               ></StepNavigation>
             </div>
             <div className="form-right-side">
-              <div className="form-header">
-                <h1>Personal Info</h1>
-                <p>
-                  Please provide your name, email address, and phone number.
-                </p>
+              <div className="form-header"> 
               </div>
               <div className="form-text-fields-container">
-                <TextField
-                  label="Name"
-                  name="name"
-                  placeholder="e.g. Stephen King"
-                />
-                <EmailField
-                  label="Email"
-                  email="email"
-                  placeholder="e.g. Stephenking@lorem.com"
-                />
-                <TextField
-                  label="Phone Number"
-                  name="name"
-                  placeholder="e.g. 1 234 567 890"
-                />
+                <If condition={currentStep === 1}>
+                 <Step1/>
+                </If>
               </div>
               <div className="button-wrapper">
                 <CustomButton
                   colorscheme="primary"
                   size="md"
                   ref={ref}
-                  onClick={() =>
-                    console.log("You clicked on the yellow square!")
-                  }
+                  onClick={() => setCurrentStep(currentStep + 1)}
                 >
                   Next Step
                 </CustomButton>
