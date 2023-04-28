@@ -8,9 +8,9 @@ interface Props {
   selected: boolean;
 }
 
-const Step = ({ stepInfo, index, stepNumber, updateStep, selected }: Props) => {
+const Step = ({ stepInfo, index, stepNumber,selected }: Props) => {
   return (
-    <div className={`stepBlock ${selected ? "selected" : ""}`}>
+    <div className={classNames("stepBlock", { selected })}>
       <div className={"circlWrapper"}>
         <div className="circle">{index + 1}</div>
       </div>
