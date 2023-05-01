@@ -1,17 +1,23 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 .cardWrapper {
-  border: 2px solid rgb(167, 163, 163);
-  //min-height: 170px;
+  border: 1.6px solid hsl(229, 24%, 87%);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 30px;
   width: 25%;
+  &.cardWrapper:hover {
+    cursor: pointer;
+    border: 1.6px solid hsl(243, 100%, 62%);
+  }
+}
+.cardWrapper:active {
+  background-color: hsl(206, 94%, 87%);
 }
 
 .image {
@@ -22,18 +28,16 @@
   width: 60px;
 }
 
-.CardTitle{
+.CardTitle {
   font-weight: 900;
   margin-left: 15px;
   margin-top: 40px;
-
 }
 
-.titleWrapper{
+.titleWrapper {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  
 }
 .subtitle {
   color: rgb(185, 181, 181);
@@ -45,5 +49,11 @@
 .cardContaier {
   display: flex;
   gap: 20px;
-  
+}
+
+.red {
+  background-color: hsl(229, 24%, 87%);
+}
+.green {
+  background-color: hsl(206, 94%, 87%);
 }

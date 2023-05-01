@@ -1,4 +1,4 @@
-import Card from "../generics/Card/Card";
+import Card from "../UILiberary/Card/Card";
 import Icon from "../../assets/images/icon-arcade.svg";
 import AdvancIcon from "../../assets/images/icon-advanced.svg";
 import IconPro from "../../assets/images/icon-pro.svg";

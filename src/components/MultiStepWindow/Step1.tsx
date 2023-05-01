@@ -1,5 +1,5 @@
-import TextField from "../generics/Text-Field/TextField";
-import EmailField from "../generics/Email-Field/EmailField";
+import TextField from "../UILiberary/Text-Field/TextField";
+import EmailField from "../UILiberary/Email-Field/EmailField";
 
 const Step1 = () => {
   return (
