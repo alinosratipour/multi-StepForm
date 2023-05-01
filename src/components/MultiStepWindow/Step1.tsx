@@ -10,7 +10,7 @@ const Step1 = () => {
       </div>
       <TextField label="Name" name="name" placeholder="e.g. Stephen King" />
       <EmailField
-        label="Email"
+        label="Email Address"
         email="email"
         placeholder="e.g. Stephenking@lorem.com"
       />
