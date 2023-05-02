@@ -2,6 +2,7 @@ import Card from "../UILiberary/Card/Card";
 import Icon from "../../assets/images/icon-arcade.svg";
 import AdvancIcon from "../../assets/images/icon-advanced.svg";
 import IconPro from "../../assets/images/icon-pro.svg";
+import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
 
 const Step2 = () => {
   return (
@@ -32,6 +33,9 @@ const Step2 = () => {
               <span className="subtitle">$15/mo</span>
             </div>
           </Card>
+        </div>
+        <div className="toggleContainer">
+          <ToggleSwitch />
         </div>
       </div>
     </div>

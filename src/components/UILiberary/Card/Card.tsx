@@ -7,7 +7,7 @@ export interface CardProps extends React.PropsWithChildren<{}> {
 
 const Card: React.FC<CardProps> = ({children,...props})=> {
   return(
-    <div className= "cardWrapper" {...props}>
+    <div className= "cardWrapper" {...props} tabIndex={0}>
     {children}
     </div>
   );

@@ -1,0 +1,48 @@
+
+.toggle-button {
+  width: 58px;
+  height: 34px;
+  position: relative;
+  display: inline-flex;
+}
+.toggle-button input {
+  width: 0;
+  height: 0;
+}
+.toggle-btn {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  transition: 0.6s;
+  position: absolute;
+  background-color: #ccc;
+  border-radius: 32px;
+  
+}
+.toggle-btn:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 6px;
+  bottom: 6px;
+  background-color: #fff;
+  transition: 0.6s;
+  border-radius: 32px;
+}
+.toggle-button input:checked + .toggle-btn {
+  background-color: #1244f7;
+}
+.toggle-button input:checked + .toggle-btn:before {
+  transform: translateX(28px);
+ 
+}
+.toggle-btn.circle {
+  border-radius: 33px;
+}
+.toggle-btn.circle:before {
+  border-radius: 51%;
+
+}

@@ -15,9 +15,9 @@
     cursor: pointer;
     border: 1.6px solid hsl(243, 100%, 62%);
   }
-}
-.cardWrapper:active {
-  background-color: hsl(206, 94%, 87%);
+  &.cardWrapper:focus {
+    background-color: hsl(231, 100%, 99%);
+  }
 }
 
 .image {
@@ -51,9 +51,3 @@
   gap: 20px;
 }
 
-.red {
-  background-color: hsl(229, 24%, 87%);
-}
-.green {
-  background-color: hsl(206, 94%, 87%);
-}
