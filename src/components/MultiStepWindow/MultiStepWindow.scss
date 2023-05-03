@@ -105,20 +105,29 @@ p {
   height: 0px;
   font-size: 16px;
 
-  &.back:hover{
+  &.back:hover {
     color: hsl(213, 96%, 18%);
   }
 }
 
-.hide{
+.hide {
   visibility: hidden;
 }
-.toggleContainer{
-  background-color:hsl(231, 100%, 99%) ;
+.toggleContainer {
+  background-color: hsl(231, 100%, 99%);
   margin-top: 40px;
   border-radius: 10px;
   width: 83%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  gap: 20px;
 
-
+}
+.on{
+  color: hsl(213, 96%, 18%);
+}
+.off{
+  color: #ccc
 }

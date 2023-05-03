@@ -3,8 +3,22 @@ import Icon from "../../assets/images/icon-arcade.svg";
 import AdvancIcon from "../../assets/images/icon-advanced.svg";
 import IconPro from "../../assets/images/icon-pro.svg";
 import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
+import { ChangeEvent, useState } from "react";
+import { If } from "tsx-control-statements/components";
+import "./MultiStepWindow.scss";
 
 const Step2 = () => {
+  const [toggled, setToggled] = useState(false);
+  const [option, setOption] = useState(["Monthly"]);
+  const [option2, setOption2] = useState(["Yearly"]);
+  const ali = ["Monthly", "Yearly"];
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setToggled(e.target.checked);
+    //setOption("Monthly");
+  };
+
+  console.log(toggled);
+
   return (
     <div>
       <div className="title">
@@ -35,7 +49,19 @@ const Step2 = () => {
           </Card>
         </div>
         <div className="toggleContainer">
-          <ToggleSwitch />
+       
+            <div className={`on ${toggled && "off"}`}>{option}</div>
+         
+
+          <ToggleSwitch onChange={handleChange} />
+
+          <div className={`on ${!toggled && "off"}`}>
+            {option2}
+          </div>
+          {/* <div className={`off ${toggled ? "on" : "off"}`}>Yearly</div> */}
+          {/* <p>the switch is {toggled ? "on" : "off"}</p> */}
+
+          {/* className={`stepBlock ${selected ? "selected" : ""}`} */}
         </div>
       </div>
     </div>
