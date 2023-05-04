@@ -1,9 +1,9 @@
-
 .toggle-button {
   display: flex;
   flex-direction: row;
-  width: 60px;
-  height: 5px;
+  width: 40px;
+  height: 0px;
+  margin-top: 14px;
   position: relative;
 }
 .toggle-button input {
@@ -21,44 +21,41 @@
   //background-color: #ccc;
   background-color: hsl(213, 96%, 18%);
   border-radius: 32px;
- 
+  width: 40px;
+  height: 20px;
 }
 .toggle-btn:before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 12px;
+  width: 12px;
   left: 6px;
-  bottom: 5px;
+  bottom: 4px;
   background-color: #fff;
   transition: 0.6s;
   border-radius: 32px;
-  
 }
 .toggle-button input:checked + .toggle-btn {
   background-color: hsl(213, 96%, 18%);
 }
 .toggle-button input:checked + .toggle-btn:before {
-  transform: translateX(28px);
- 
+  transform: translateX(19px);
 }
 .toggle-btn.circle {
   border-radius: 33px;
 }
 .toggle-btn.circle:before {
   border-radius: 51%;
-
 }
 
-.left{
-padding-right: 20px;
+.left {
+  padding-right: 20px;
 }
-.right{
+.right {
   padding-left: 20px;
 }
-.togleContainer{
+.togleContainer {
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
