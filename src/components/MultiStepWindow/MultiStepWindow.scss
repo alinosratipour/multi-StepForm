@@ -39,6 +39,7 @@ p {
   gap: 100px;
   min-width: 400px;
   height: 650px;
+  padding-right: 60px;
 }
 .form-right-side {
   display: flex;
@@ -63,6 +64,7 @@ p {
 }
 .title {
   font-weight: 900;
+  // margin-right: 50px;
 }
 
 .form-content-wrapper {
@@ -83,10 +85,13 @@ p {
 
 .button-wrapper {
   padding-top: 90px;
-  margin-right: 50px;
   text-align: right;
   display: flex;
   justify-content: space-between;
+
+  &.button-wrapper :nth-child(2) {
+    margin-right: 30px;
+  }
 }
 
 .bg-img {
@@ -117,17 +122,16 @@ p {
   background-color: hsl(231, 100%, 99%);
   margin-top: 40px;
   border-radius: 10px;
-  width: 83%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
   gap: 20px;
-
 }
-.on{
+.on {
   color: hsl(213, 96%, 18%);
 }
-.off{
-  color: #ccc
+.off {
+  color: #ccc;
 }

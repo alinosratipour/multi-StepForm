@@ -4,16 +4,16 @@ import "./ToggleSwitch.scss";
 interface Props {
   isChecked?: boolean;
   onChange?: () => void;
-  children?:React.ReactNode;
- 
+  children?: React.ReactNode;
 }
 
-const ToggleSwitch:React.FC<Props> = ({ isChecked, onChange,children }: Props) => {
- 
-
+const ToggleSwitch: React.FC<Props> = ({
+  isChecked,
+  onChange,
+  children,
+}: Props) => {
   return (
     <div className="togleContainer">
-      {/* <div className="left">Monthly</div> */}
       <label className="toggle-button">
         <input
           type="checkbox"
@@ -23,7 +23,6 @@ const ToggleSwitch:React.FC<Props> = ({ isChecked, onChange,children }: Props) =
         />
         <span className={`toggle-btn`}> </span>
       </label>
-      {/* <div className="right">Yearly</div> */}
       {children}
     </div>
   );
