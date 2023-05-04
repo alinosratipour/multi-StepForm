@@ -1,23 +1,17 @@
+import { ChangeEvent, useState } from "react";
+import { If } from "tsx-control-statements/components";
 import Card from "../UILiberary/Card/Card";
 import Icon from "../../assets/images/icon-arcade.svg";
 import AdvancIcon from "../../assets/images/icon-advanced.svg";
 import IconPro from "../../assets/images/icon-pro.svg";
 import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
-import { ChangeEvent, useState } from "react";
-import { If } from "tsx-control-statements/components";
 import "./MultiStepWindow.scss";
 
 const Step2 = () => {
   const [toggled, setToggled] = useState(false);
-  const [option, setOption] = useState(["Monthly"]);
-  const [option2, setOption2] = useState(["Yearly"]);
-  const ali = ["Monthly", "Yearly"];
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggled(e.target.checked);
-    //setOption("Monthly");
   };
-
-  console.log(toggled);
 
   return (
     <div>
@@ -29,7 +23,12 @@ const Step2 = () => {
             <img src={Icon} className="image" />
             <div className="titleWrapper">
               <span className="CardTitle">Arcade</span>
-              <span className="subtitle">$9/mo</span>
+              <span className="subtitle">{`${
+                !toggled ? "$9/mo" : "$90/yr"
+              }`}</span>
+              <If condition={toggled === true}>
+                <span className="yearlyOffer">2 months free</span>
+              </If>
             </div>
           </Card>
 
@@ -37,31 +36,32 @@ const Step2 = () => {
             <img src={AdvancIcon} className="image" />
             <div className="titleWrapper">
               <span className="CardTitle">Advance</span>
-              <span className="subtitle">$12/mo</span>
+              <span className="subtitle">{`${
+                !toggled ? "$12/mo" : "$120/yr"
+              }`}</span>
+              <If condition={toggled === true}>
+                <span className="yearlyOffer">2 months free</span>
+              </If>
             </div>
           </Card>
           <Card>
             <img src={IconPro} className="image" />
             <div className="titleWrapper">
               <span className="CardTitle">Pro</span>
-              <span className="subtitle">$15/mo</span>
+
+              <span className="subtitle">{`${
+                !toggled ? "$15/mo" : "$150/yr"
+              }`}</span>
+              <If condition={toggled === true}>
+                <span className="yearlyOffer">2 months free</span>
+              </If>
             </div>
           </Card>
         </div>
         <div className="toggleContainer">
-       
-            <div className={`on ${toggled && "off"}`}>{option}</div>
-         
-
+          <div className={`on ${toggled && "off"}`}>Monthly</div>
           <ToggleSwitch onChange={handleChange} />
-
-          <div className={`on ${!toggled && "off"}`}>
-            {option2}
-          </div>
-          {/* <div className={`off ${toggled ? "on" : "off"}`}>Yearly</div> */}
-          {/* <p>the switch is {toggled ? "on" : "off"}</p> */}
-
-          {/* className={`stepBlock ${selected ? "selected" : ""}`} */}
+          <div className={`on ${!toggled && "off"}`}>Yearly</div>
         </div>
       </div>
     </div>
