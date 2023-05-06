@@ -17,9 +17,9 @@
     cursor: pointer;
     border: 1.6px solid hsl(243, 100%, 62%);
   }
-  &.cardWrapper:focus {
-    background-color: hsl(231, 100%, 99%);
-  }
+  // &.cardWrapper:focus {
+  //   background-color: hsl(231, 100%, 99%);
+  // }
 }
 
 .image {
@@ -58,4 +58,7 @@
   color: hsl(213, 96%, 18%);
   font-size: 13px;
   font-weight: 300;
+}
+.bg--color{
+  background-color: hsl(231, 100%, 99%);
 }
