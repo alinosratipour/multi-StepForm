@@ -1,9 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ChangeEvent, DetailedHTMLProps, HTMLAttributes } from "react";
 import "./ToggleSwitch.scss";
 
 interface Props {
   isChecked?: boolean;
-  onChange?: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   children?: React.ReactNode;
 }
 

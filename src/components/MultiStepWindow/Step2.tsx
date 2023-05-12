@@ -17,7 +17,6 @@ const Step2 = () => {
 
   const handleCardClick = (cardIndex: number) => {
     setSelectedCard(cardIndex);
-    console.log(cardIndex);
   };
 
   return (

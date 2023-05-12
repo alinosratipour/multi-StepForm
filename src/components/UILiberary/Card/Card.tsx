@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import "./Card.scss";
+import React from "react";
 import classNames from "classnames";
-
+import "./Card.scss";
 export interface CardProps extends React.PropsWithChildren<{}> {
   children?: React.ReactNode;
   colorscheme?: string | boolean;
@@ -10,7 +9,6 @@ export interface CardProps extends React.PropsWithChildren<{}> {
   subtitle?: string;
   content?: string;
   onClick?: () => void;
-
 }
 
 const Card: React.FC<CardProps> = ({
