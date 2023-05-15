@@ -31,8 +31,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 
   return (
     <div className="text-field">
-      <label>
-        {label}
+      <label className="label">
+     {label}
         {error && errorMessagePosition === "above" && (
           <span className={errorMessageClassName}>{error}</span>
         )}

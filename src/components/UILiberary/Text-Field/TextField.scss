@@ -13,32 +13,25 @@ input {
   outline: none;
   width: 85%;
   font-weight: 700;
- 
 }
 .text-field {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .label {
-    color: #333;
-    margin-bottom: 4px;
-  }
-  
-  .input-container {
-    display: flex;
-    align-items: center;
-  }
-  
- 
-  .error-message-above {
-    color: red;
-    font-size: 12px;
-    margin-left: 8px;
-    text-align: right;
-    width: 83%;
-  }
-  .input-border-error{
-    border: 1px solid red;
-    
-  }
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message-above {
+  color: red;
+  font-size: 12px;
+  margin-left: 8px;
+  text-align: right;
+}
+.input-border-error {
+  border: 1px solid red;
+}
+
+.label {
+  width: 83%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

@@ -23,7 +23,7 @@ const Step1 = () => {
     try {
       // Create a partial data object with the updated field value
       const data = { ...values, [name]: value };
-console.log(data);
+
 
       // Validate the specific field against the validation schema
       const fieldValidationSchema = validationSchema.pick({

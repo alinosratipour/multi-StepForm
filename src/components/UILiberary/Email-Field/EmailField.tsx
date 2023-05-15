@@ -31,7 +31,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 
   return (
     <div className="text-field">
-      <label >
+       <label className="label">
         {label}
         {error && errorMessagePosition === "above" && <span className={errorMessageClassName}>{error}</span>}
       </label>
@@ -41,6 +41,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         placeholder={placeholder}
         ref={ref}
         onChange={onChange}
+        className={error ? 'input-border-error' : ""}
         
       />
       {error && errorMessagePosition === "default" && <span className={errorMessageClassName}>{error}</span>}
