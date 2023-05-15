@@ -1,8 +1,11 @@
 import TextField from "../UILiberary/Text-Field/TextField";
 import EmailField from "../UILiberary/Email-Field/EmailField";
 import React, { useState } from "react";
-import { validationSchema } from "../../utils/validationSchema";
-import { ZodError } from "zod";
+import {
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../../utils/validate";
 
 const Step1 = () => {
   const [values, setValues] = useState<{ [key: string]: string }>({
@@ -19,26 +22,15 @@ const Step1 = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget;
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
-
-    try {
-      // Create a partial data object with the updated field value
-      const data = { ...values, [name]: value };
-console.log(data);
-
-      // Validate the specific field against the validation schema
-      const fieldValidationSchema = validationSchema.pick({
-        [name]:
-          validationSchema.shape[name as keyof typeof validationSchema.shape],
-      });
-      fieldValidationSchema.parse(data);
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-    } catch (error) {
-      if (error instanceof ZodError) {
-        // Set the error message if validation fails for the specific field
-        const fieldErrors = error.errors.map((err) => err.message);
-        setErrors((prevErrors) => ({ ...prevErrors, [name]: fieldErrors[0] }));
-      }
+    let errorMessage: string | undefined;
+    if (value.length === 0) {
+      errorMessage = validateName(value);
+    } else if (name === "email") {
+      errorMessage = validateEmail(value);
+    } else if (name === "phone") {
+      errorMessage = validatePhone(value);
     }
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: errorMessage || "" }));
   };
 
   return (
@@ -56,7 +48,6 @@ console.log(data);
           onChange={handleChange}
           value={values.name}
           error={errors.name}
-          errorMessagePosition={"above"}
         />
         <EmailField
           label="Email Address"
@@ -65,7 +56,6 @@ console.log(data);
           onChange={handleChange}
           value={values.email}
           error={errors.email}
-          errorMessagePosition={"above"}
         />
         <TextField
           label="Phone Number"
@@ -74,7 +64,6 @@ console.log(data);
           onChange={handleChange}
           value={values.phone}
           error={errors.phone}
-          errorMessagePosition={"above"}
         />
       </form>
     </div>

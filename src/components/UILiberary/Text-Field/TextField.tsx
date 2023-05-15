@@ -1,4 +1,5 @@
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import classNames from "classnames";
 import "./TextField.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,25 +9,46 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
+  errorMessagePosition?: "default" | "above";
 }
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { name, placeholder, label, onChange, error, ...otherProps },
+  {
+    name,
+    placeholder,
+    label,
+    onChange,
+    error,
+    errorMessagePosition = "default",
+    ...otherProps
+  },
   ref
 ) => {
+  const errorMessageClassName = classNames({
+    "error-message-default": errorMessagePosition === "default" && error,
+    "error-message-above": errorMessagePosition === "above" && error,
+  });
+
   return (
-    <label>
-      {label}
+    <div className="text-field">
+      <label>
+        {label}
+        {error && errorMessagePosition === "above" && (
+          <span className={errorMessageClassName}>{error}</span>
+        )}
+      </label>
       <input
         {...otherProps}
         name={name}
         placeholder={placeholder}
         ref={ref}
         onChange={onChange}
-        className={error ? "error" : undefined}
+        className={error ? 'input-border-error' : ""}
       />
-      {error && <span className="error-message">{error}</span>}
-    </label>
+      {error && errorMessagePosition === "default" && (
+        <span className={errorMessageClassName}>{error}</span>
+      )}
+    </div>
   );
 };
 
