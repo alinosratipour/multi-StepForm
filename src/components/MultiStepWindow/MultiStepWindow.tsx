@@ -9,6 +9,7 @@ import Step2 from "./Step2";
 import { validateInput } from "../../utils/validationUtils";
 import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
+import Setep3 from "./Setep3";
 
 // ### Primary
 
@@ -106,6 +107,9 @@ const MultiStepWindow = () => {
               </If>
               <If condition={currentStep === 2}>
                 <Step2 />
+              </If>
+              <If condition={currentStep === 3}>
+                <Setep3 />
               </If>
             </div>
           </div>

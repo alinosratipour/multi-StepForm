@@ -15,7 +15,7 @@ interface Step1Props {
 const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
     <div>
-      <form onSubmit={handleInputChange}>
+      <form>
         <div className="title">
           <h1>Personal Info</h1>
           <p>Please provide your name, email address, and phone number.</p>
@@ -49,7 +49,6 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           errorMessagePosition="above"
         />
       </form>
-     
     </div>
   );
 };
