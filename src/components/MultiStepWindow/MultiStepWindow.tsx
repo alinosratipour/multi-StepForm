@@ -6,10 +6,9 @@ import StepNavigation from "../stepper/StepNavigation";
 import { If } from "tsx-control-statements/components";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-import { ZodError } from "zod";
-import { validationSchema } from "../../utils/validationSchema";
 import { validateInput } from "../../utils/validationUtils";
-import { error } from "console";
+import { validationSchema } from "../../utils/validationSchema";
+import { ZodError } from "zod";
 
 // ### Primary
 
@@ -54,13 +53,6 @@ const MultiStepWindow = () => {
     phone: "",
   });
 
-  const next = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    // Proceed to the next step
-    setCurrentStep(currentStep + 1);
-  };
-
   const handleInputChange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -68,6 +60,29 @@ const MultiStepWindow = () => {
   ) => {
     const { name, value } = event.currentTarget;
     validateInput(name, value, values, setValues, setErrors);
+  };
+
+  const moveToNextStep = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    try {
+      await validationSchema.parseAsync(values);
+
+      // Proceed to the next step if validation succeeds
+      setCurrentStep(currentStep + 1);
+    } catch (error) {
+      if (error instanceof ZodError) {
+        const updatedErrors: { [key: string]: string } = {};
+
+        error.errors.forEach((validationError) => {
+          const { path, message } = validationError;
+          const fieldName = path[0];
+          updatedErrors[fieldName] = message;
+        });
+
+        setErrors((prevErrors) => ({ ...prevErrors, ...updatedErrors }));
+      }
+    }
   };
 
   return (
@@ -103,7 +118,7 @@ const MultiStepWindow = () => {
               colorscheme="primary"
               size="md"
               ref={ref}
-              onClick={next}
+              onClick={moveToNextStep}
             >
               Next Step
             </CustomButton>
