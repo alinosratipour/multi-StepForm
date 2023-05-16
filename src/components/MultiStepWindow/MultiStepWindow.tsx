@@ -6,7 +6,10 @@ import StepNavigation from "../stepper/StepNavigation";
 import { If } from "tsx-control-statements/components";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
-
+import { ZodError } from "zod";
+import { validationSchema } from "../../utils/validationSchema";
+import { validateInput } from "../../utils/validationUtils";
+import { error } from "console";
 
 // ### Primary
 
@@ -40,6 +43,33 @@ const MultiStepWindow = () => {
     }
   };
 
+  const [values, setValues] = useState<{ [key: string]: string }>({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const next = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    // Proceed to the next step
+    setCurrentStep(currentStep + 1);
+  };
+
+  const handleInputChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.FormEvent<HTMLFormElement>
+  ) => {
+    const { name, value } = event.currentTarget;
+    validateInput(name, value, values, setValues, setErrors);
+  };
+
   return (
     <div className="container">
       <div className="form-content">
@@ -53,7 +83,11 @@ const MultiStepWindow = () => {
           <div className="form-header">
             <div className="form-text-fields-container">
               <If condition={currentStep === 1}>
-                <Step1 />
+                <Step1
+                  values={values}
+                  errors={errors}
+                  handleInputChange={handleInputChange}
+                />
               </If>
               <If condition={currentStep === 2}>
                 <Step2 />
@@ -69,7 +103,7 @@ const MultiStepWindow = () => {
               colorscheme="primary"
               size="md"
               ref={ref}
-              onClick={() => setCurrentStep(currentStep + 1)}
+              onClick={next}
             >
               Next Step
             </CustomButton>

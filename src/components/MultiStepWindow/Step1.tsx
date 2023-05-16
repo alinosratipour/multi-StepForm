@@ -1,49 +1,21 @@
+import React from "react";
 import TextField from "../UILiberary/Text-Field/TextField";
 import EmailField from "../UILiberary/Email-Field/EmailField";
-import React, { useState } from "react";
-import { validationSchema } from "../../utils/validationSchema";
-import { ZodError } from "zod";
 
-const Step1 = () => {
-  const [values, setValues] = useState<{ [key: string]: string }>({
-    name: "",
-    email: "",
-    phone: "",
-  });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({
-    name: "",
-    email: "",
-    phone: "",
-  });
+interface Step1Props {
+  values: { [key: string]: string };
+  errors: { [key: string]: string };
+  handleInputChange?: (
+    event:
+      | React.FormEvent<HTMLFormElement>
+      | React.ChangeEvent<HTMLInputElement>
+  ) => void;
+}
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget;
-    setValues((prevValues) => ({ ...prevValues, [name]: value }));
-
-    try {
-      // Create a partial data object with the updated field value
-      const data = { ...values, [name]: value };
-
-
-      // Validate the specific field against the validation schema
-      const fieldValidationSchema = validationSchema.pick({
-        [name]:
-          validationSchema.shape[name as keyof typeof validationSchema.shape],
-      });
-      fieldValidationSchema.parse(data);
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-    } catch (error) {
-      if (error instanceof ZodError) {
-        // Set the error message if validation fails for the specific field
-        const fieldErrors = error.errors.map((err) => err.message);
-        setErrors((prevErrors) => ({ ...prevErrors, [name]: fieldErrors[0] }));
-      }
-    }
-  };
-
+const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
     <div>
-      <form>
+      <form onSubmit={handleInputChange}>
         <div className="title">
           <h1>Personal Info</h1>
           <p>Please provide your name, email address, and phone number.</p>
@@ -53,28 +25,28 @@ const Step1 = () => {
           label="Name"
           name="name"
           placeholder="e.g. Stephen King"
-          onChange={handleChange}
+          onChange={handleInputChange}
           value={values.name}
           error={errors.name}
-          errorMessagePosition={"above"}
+          errorMessagePosition="above"
         />
         <EmailField
           label="Email Address"
           email="email"
           placeholder="e.g. Stephenking@lorem.com"
-          onChange={handleChange}
+          onChange={handleInputChange}
           value={values.email}
           error={errors.email}
-          errorMessagePosition={"above"}
+          errorMessagePosition="above"
         />
         <TextField
           label="Phone Number"
           name="phone"
           placeholder="e.g. 1 234 567 890"
-          onChange={handleChange}
+          onChange={handleInputChange}
           value={values.phone}
           error={errors.phone}
-          errorMessagePosition={"above"}
+          errorMessagePosition="above"
         />
       </form>
     </div>
