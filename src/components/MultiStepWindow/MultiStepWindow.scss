@@ -46,7 +46,6 @@ p {
   flex-direction: column;
   width: 100%;
   flex: 2;
-
 }
 
 .form-header {
@@ -64,7 +63,6 @@ p {
 }
 .title {
   font-weight: 900;
-  // margin-right: 50px;
 }
 
 .form-content-wrapper {
@@ -136,36 +134,92 @@ p {
   color: #ccc;
 }
 
-// step3 
-.add-on-box{
-  border: 1px solid hsl(231, 11%, 63%);
-  margin-top: 10px;
-  padding: 20px;
+.add-on-container {
+  padding-top: 30px;
+}
+// step3
+.add-on-box {
+  border: 1px solid hsl(229, 24%, 87%);
+  margin-top: 15px;
+  padding: 12px;
   border-radius: 10px;
 }
 
-.add-on-contents{
+.add-on-contents {
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
 }
-.add-on-name{
-  font-size: 13px;
+.add-on-name {
+  font-size: 16px;
+  font-weight: 800;
 }
 
-.add-on-desciption{
-  font-size: 12px;
- 
+.add-on-desciption {
+  font-size: 14px;
+  font-weight: 200;
+
   color: hsl(231, 11%, 63%);
   padding-top: 5px;
-  
 }
-.name-and-desciption{
+.name-and-desciption {
   display: flex;
   flex-direction: column;
-
+  width: 90%;
 }
-.add-on-price{
- color: hsl(243, 100%, 62%);
- font-size: 11px;
+.add-on-price {
+  color: hsl(243, 100%, 62%);
+  font-size: 11px;
+}
+
+.checkbox-container {
+  padding-right: 20px;
+  display: inline-block;
+}
+
+.custom-checkbox {
+  position: relative;
+  padding-left: 25px;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: 1px solid hsl(229, 24%, 87%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: hsl(243, 100%, 62%);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-50%, -50%);
+  top: 45%;
+  left: 25%;
 }

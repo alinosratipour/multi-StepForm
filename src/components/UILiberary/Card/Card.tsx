@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "./Card.scss";
 export interface CardProps extends React.PropsWithChildren<{}> {
   children?: React.ReactNode;
-  colorscheme?: string | boolean;
+  colorscheme?: string | boolean |number;
   title: string;
   icon?: string;
   subtitle?: string;

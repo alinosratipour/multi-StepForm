@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import CustomButton from "../UILiberary/Button/NewButton";
 import "./MultiStepWindow.scss";
 import "../stepper/steper.scss";
@@ -30,13 +30,19 @@ import Setep3 from "./Setep3";
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [selectedCard, setSelectedCard] = useState(0);
+  const [planType, setPlanType] = useState("monthly");
+
   const stepText = {
     "STEP 1": "YOUR INFO",
     "STEP 2": "SELECTED PLAN",
     "STEP 3": "ADD-ONS",
     "STEP 4": "SUMMARY",
   };
-
+  const handlePlanTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newPlanType = e.target.checked ? "yearly" : "monthly";
+    setPlanType(newPlanType);
+  };
   const goBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
@@ -53,7 +59,7 @@ const MultiStepWindow = () => {
     email: "",
     phone: "",
   });
-
+  const [toggleState, setToggleState] = useState(false);
   const handleInputChange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -69,7 +75,6 @@ const MultiStepWindow = () => {
     try {
       await validationSchema.parseAsync(values);
 
-      // Proceed to the next step if validation succeeds
       setCurrentStep(currentStep + 1);
     } catch (error) {
       if (error instanceof ZodError) {
@@ -105,11 +110,19 @@ const MultiStepWindow = () => {
                   handleInputChange={handleInputChange}
                 />
               </If>
+
               <If condition={currentStep === 2}>
-                <Step2 />
+                <Step2
+                  selectedCard={selectedCard}
+                  setSelectedCard={setSelectedCard}
+                  planType={planType}
+                  onPlanTypeChange={handlePlanTypeChange}
+                  toggleState={toggleState}
+                  setToggleState={setToggleState}
+                />
               </If>
               <If condition={currentStep === 3}>
-                <Setep3 />
+                <Setep3 planType={planType} toggleState={toggleState} />{" "}
               </If>
             </div>
           </div>
