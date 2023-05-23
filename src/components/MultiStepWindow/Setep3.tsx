@@ -1,29 +1,31 @@
 import PlanCard from "../UILiberary/ToggleSwitch/PlanCard/PlanCard";
 import { addOns } from "../../data/addOns.js";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Setep3Props {
   planType: string;
-  toggleState: boolean;
-  selectedCard: number;
-  setSelectedCard: Dispatch<SetStateAction<number>>;
 }
 
-const Setep3: React.FC<Setep3Props> = ({
-  planType,
-  selectedCard,
-  setSelectedCard,
-}) => {
+const Setep3: React.FC<Setep3Props> = ({ planType }) => {
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
 
-  const handleAddOnClick = (addOnName: string, cardIndex: number) => {
-    setSelectedCard(cardIndex);
+  // Load selected add-ons from local storage on component mount
+  useEffect(() => {
+    const storedAddOns = localStorage.getItem("selectedAddOns");
+    if (storedAddOns) {
+      setSelectedAddOns(JSON.parse(storedAddOns));
+    }
+  }, []);
+
+  // Update selected add-ons and store in local storage
+  const handleAddOnClick = (addOnName: string) => {
     setSelectedAddOns((prevSelectedAddOns) => {
-      if (prevSelectedAddOns.includes(addOnName)) {
-        return prevSelectedAddOns.filter((name) => name !== addOnName);
-      } else {
-        return [...prevSelectedAddOns, addOnName];
-      }
+      const updatedAddOns = prevSelectedAddOns.includes(addOnName)
+        ? prevSelectedAddOns.filter((name) => name !== addOnName)
+        : [...prevSelectedAddOns, addOnName];
+
+      localStorage.setItem("selectedAddOns", JSON.stringify(updatedAddOns));
+      return updatedAddOns;
     });
   };
 
@@ -33,22 +35,21 @@ const Setep3: React.FC<Setep3Props> = ({
       <p>Add-ons help enhance your gaming experience.</p>
 
       <div className="add-on-container">
-        {addOns.map((item, index) => {
+        {addOns.map((item) => {
           const price =
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
           const isChecked = selectedAddOns.includes(item.name);
-          const isHighlighted = index === selectedCard || isChecked;
+          const isHighlighted = isChecked;
+
           return (
-          
             <PlanCard
               key={item.name}
               title={item.name}
               description={item.description}
               price={formattedPrice}
-              onClick={() => handleAddOnClick(item.name, index)}
-            //  colorscheme={index === selectedCard && "primary"}
+              onClick={() => handleAddOnClick(item.name)}
               colorscheme={isHighlighted ? "primary" : undefined}
             >
               <div className="checkbox-container">
@@ -57,7 +58,7 @@ const Setep3: React.FC<Setep3Props> = ({
                     type="checkbox"
                     className="checkbox"
                     checked={isChecked}
-                    onClick={() => handleAddOnClick(item.name, index)}
+                    onChange={() => handleAddOnClick(item.name)}
                   />
                   <span className="checkmark"></span>
                 </label>
