@@ -122,7 +122,12 @@ const MultiStepWindow = () => {
                 />
               </If>
               <If condition={currentStep === 3}>
-                <Setep3 planType={planType} toggleState={toggleState} />{" "}
+                <Setep3
+                  planType={planType}
+                  toggleState={toggleState}
+                  selectedCard={selectedCard}
+                  setSelectedCard={setSelectedCard}
+                />{" "}
               </If>
             </div>
           </div>

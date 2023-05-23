@@ -1,39 +1,31 @@
-import { boolean } from "zod";
+import PlanCard from "../UILiberary/ToggleSwitch/PlanCard/PlanCard";
+import { addOns } from "../../data/addOns.js";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface Setep3Props {
   planType: string;
-  toggleState:boolean;
-  
+  toggleState: boolean;
+  selectedCard: number;
+  setSelectedCard: Dispatch<SetStateAction<number>>;
 }
 
-const Setep3: React.FC<Setep3Props> = ({ planType }) => {
-  const addOns = [
-    {
-      name: "Online service",
-      description: "Access to multiplayer games",
-      price: {
-        monthly: 1,
-        yearly: 10,
-      },
-    },
-    {
-      name: "Larger storage",
-      description: "Extra 1TB of cloud save",
-      price: {
-        monthly: 2,
-        yearly: 20,
-      },
-    },
-    {
-      name: "Customizable profile",
-      description: "Custom theme on your profile",
-      price: {
-        monthly: 2,
-        yearly: 20,
-      },
-    },
-  ];
-console.log("step3",planType);
+const Setep3: React.FC<Setep3Props> = ({
+  planType,
+  selectedCard,
+  setSelectedCard,
+}) => {
+  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+
+  const handleAddOnClick = (addOnName: string, cardIndex: number) => {
+    setSelectedCard(cardIndex);
+    setSelectedAddOns((prevSelectedAddOns) => {
+      if (prevSelectedAddOns.includes(addOnName)) {
+        return prevSelectedAddOns.filter((name) => name !== addOnName);
+      } else {
+        return [...prevSelectedAddOns, addOnName];
+      }
+    });
+  };
 
   return (
     <div className="title">
@@ -41,29 +33,36 @@ console.log("step3",planType);
       <p>Add-ons help enhance your gaming experience.</p>
 
       <div className="add-on-container">
-        {addOns.map((item) => {
+        {addOns.map((item, index) => {
           const price =
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
+          const isChecked = selectedAddOns.includes(item.name);
+          const isHighlighted = index === selectedCard || isChecked;
           return (
-            <div className="add-on-box">
-              <div className="add-on-contents">
-                <div className="checkbox-container">
-                  <label className="custom-checkbox">
-                    <input type="checkbox" className="checkbox" />
-                    <span className="checkmark"></span>
-                  </label>
-                </div>
-
-                <div className="name-and-desciption">
-                  <span className="add-on-name">{item.name}</span>
-                  <span className="add-on-desciption">{item.description}</span>
-                </div>
-
-                <span className="add-on-price">{formattedPrice}</span>
+          
+            <PlanCard
+              key={item.name}
+              title={item.name}
+              description={item.description}
+              price={formattedPrice}
+              onClick={() => handleAddOnClick(item.name, index)}
+            //  colorscheme={index === selectedCard && "primary"}
+              colorscheme={isHighlighted ? "primary" : undefined}
+            >
+              <div className="checkbox-container">
+                <label className="custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    checked={isChecked}
+                    onClick={() => handleAddOnClick(item.name, index)}
+                  />
+                  <span className="checkmark"></span>
+                </label>
               </div>
-            </div>
+            </PlanCard>
           );
         })}
       </div>
