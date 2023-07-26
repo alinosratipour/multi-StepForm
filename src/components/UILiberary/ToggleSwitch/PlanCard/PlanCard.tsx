@@ -11,8 +11,8 @@ export interface CardProps extends React.PropsWithChildren<{}> {
   price?: string;
   checked?: boolean; // Add a new prop for the checked state
   onClick?: () => void;
- // onChange?:()=>void;
- //onChange?: (checked: boolean) => void;
+  // onChange?:()=>void;
+  //onChange?: (checked: boolean) => void;
 }
 
 const PlanCard: React.FC<CardProps> = ({
@@ -27,9 +27,7 @@ const PlanCard: React.FC<CardProps> = ({
   checked,
   ...props
 }) => {
- // const [isChecked, setIsChecked] = useState(checked);
-
-
+  // const [isChecked, setIsChecked] = useState(checked);
 
   // const handleCardClick = () => {
   //   setIsChecked(!isChecked);
@@ -38,26 +36,23 @@ const PlanCard: React.FC<CardProps> = ({
   //   }
   // };
 
-
   const cardClasses = classNames("add-on-box", {
     "bg--color": colorscheme === "primary",
   });
 
   return (
-    <div className={cardClasses} onClick={onClick} >
-    
+    <div className={cardClasses} onClick={onClick}>
       <div className="add-on-contents">
         {children}
-        
+
         <div className="name-and-desciption">
           <span className="add-on-name">{title}</span>
           <span className="add-on-desciption">{description}</span>
         </div>
 
         <span className="add-on-price">{price}</span>
-        </div>
       </div>
-   
+    </div>
   );
 };
 

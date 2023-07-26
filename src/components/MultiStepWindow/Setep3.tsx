@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 interface Setep3Props {
   planType: string;
+  toggleState: boolean;
+  selectedCard: number;
 }
 
 const Setep3: React.FC<Setep3Props> = ({ planType }) => {
@@ -18,14 +20,14 @@ const Setep3: React.FC<Setep3Props> = ({ planType }) => {
   }, []);
 
   // Update selected add-ons and store in local storage
-  const handleAddOnClick = (addOnName: string) => {
-    setSelectedAddOns((prevSelectedAddOns) => {
-      const updatedAddOns = prevSelectedAddOns.includes(addOnName)
-        ? prevSelectedAddOns.filter((name) => name !== addOnName)
-        : [...prevSelectedAddOns, addOnName];
+  const toggleAddOnSelection = (addOnName: string) => {
+    setSelectedAddOns((currentSelection) => {
+      const updatedSelection = currentSelection.includes(addOnName)
+        ? currentSelection.filter((name) => name !== addOnName)
+        : [...currentSelection, addOnName];
 
-      localStorage.setItem("selectedAddOns", JSON.stringify(updatedAddOns));
-      return updatedAddOns;
+      localStorage.setItem("selectedAddOns", JSON.stringify(updatedSelection));
+      return updatedSelection;
     });
   };
 
@@ -49,7 +51,7 @@ const Setep3: React.FC<Setep3Props> = ({ planType }) => {
               title={item.name}
               description={item.description}
               price={formattedPrice}
-              onClick={() => handleAddOnClick(item.name)}
+              onClick={() => toggleAddOnSelection(item.name)}
               colorscheme={isHighlighted ? "primary" : undefined}
             >
               <div className="checkbox-container">
@@ -58,7 +60,7 @@ const Setep3: React.FC<Setep3Props> = ({ planType }) => {
                     type="checkbox"
                     className="checkbox"
                     checked={isChecked}
-                    onChange={() => handleAddOnClick(item.name)}
+                    onChange={() => toggleAddOnSelection(item.name)}
                   />
                   <span className="checkmark"></span>
                 </label>
