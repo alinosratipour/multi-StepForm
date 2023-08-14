@@ -6,9 +6,10 @@ interface Setep3Props {
   planType: string;
   toggleState: boolean;
   selectedCard: number;
+  
 }
 
-const Setep3: React.FC<Setep3Props> = ({ planType }) => {
+const Setep3: React.FC<Setep3Props> = ({ planType}) => {
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
 
   // Load selected add-ons from local storage on component mount

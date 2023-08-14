@@ -91,7 +91,8 @@ const MultiStepWindow = () => {
       }
     }
   };
-
+  // State to store the selected plan price from Step 2
+  const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
   return (
     <div className="container">
       <div className="form-content">
@@ -120,6 +121,7 @@ const MultiStepWindow = () => {
                   onPlanTypeChange={handlePlanTypeChange}
                   toggleState={toggleState}
                   setToggleState={setToggleState}
+                  setPlanPrice={setSelectedPlanPrice} // Pass the state setter to Step 2
                 />
               </If>
               <If condition={currentStep === 3}>
@@ -130,7 +132,7 @@ const MultiStepWindow = () => {
                 />{" "}
               </If>
               <If condition={currentStep === 4}>
-                <Step4 />
+              <Step4 selectedPlanPrice={selectedPlanPrice} planType={planType}  /> 
               </If>
             </div>
           </div>

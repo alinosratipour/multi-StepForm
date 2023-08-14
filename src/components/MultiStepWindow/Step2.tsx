@@ -40,6 +40,7 @@ interface Step2Props {
   onPlanTypeChange: (e: ChangeEvent<HTMLInputElement>) => void;
   toggleState: boolean;
   setToggleState: Dispatch<SetStateAction<boolean>>;
+  setPlanPrice: Dispatch<SetStateAction<number>>;
 }
 
 const Step2: React.FC<Step2Props> = ({
@@ -48,6 +49,7 @@ const Step2: React.FC<Step2Props> = ({
   setToggleState,
   setSelectedCard,
   onPlanTypeChange,
+  setPlanPrice, // Receive the selected plan price as a prop
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggleState(e.target.checked);
@@ -57,6 +59,11 @@ const Step2: React.FC<Step2Props> = ({
   const handleCardClick = (cardIndex: number) => {
     setSelectedCard(cardIndex);
   };
+
+  // Get the selected plan price
+  const selectedPlan = plans[selectedCard];
+  toggleState ? selectedPlan.price.yearly : selectedPlan.price.monthly;
+
   useEffect(() => {
     localStorage.setItem("selectedCard", String(selectedCard));
   }, [selectedCard]);
@@ -78,6 +85,17 @@ const Step2: React.FC<Step2Props> = ({
   useEffect(() => {
     localStorage.setItem("toggleState", String(toggleState));
   }, [toggleState]);
+
+  useEffect(() => {
+    // Calculate the selected plan price based on the plan type (monthly or yearly)
+    const selectedPlan = plans[selectedCard];
+    const selectedPlanPrice = toggleState
+      ? selectedPlan.price.yearly
+      : selectedPlan.price.monthly;
+
+    // Set the selected plan's price in the state
+    setPlanPrice(selectedPlanPrice);
+  }, [selectedCard, toggleState, setPlanPrice]);
   return (
     <div>
       <div className="title">
