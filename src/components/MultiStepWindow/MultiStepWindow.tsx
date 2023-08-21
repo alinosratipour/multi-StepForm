@@ -11,7 +11,7 @@ import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
 import Setep3 from "./Setep3";
 import Step4 from "./Step4";
-
+import { SelectedPlanContext } from "../../context/SelectedPlanContext";
 // ### Primary
 
 // - Marine blue: hsl(213, 96%, 18%)
@@ -33,6 +33,7 @@ const MultiStepWindow = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCard, setSelectedCard] = useState(0);
   const [planType, setPlanType] = useState("monthly");
+  const [selectedPlanName, setSelectedPlanName] = useState(""); // Add this state
 
   const stepText = {
     "STEP 1": "YOUR INFO",
@@ -93,6 +94,7 @@ const MultiStepWindow = () => {
   };
   // State to store the selected plan price from Step 2
   const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
+
   return (
     <div className="container">
       <div className="form-content">
@@ -122,8 +124,10 @@ const MultiStepWindow = () => {
                   toggleState={toggleState}
                   setToggleState={setToggleState}
                   setPlanPrice={setSelectedPlanPrice} // Pass the state setter to Step 2
+                  setSelectedPlanName={setSelectedPlanName} // Pass the state setter to Step 2
                 />
               </If>
+
               <If condition={currentStep === 3}>
                 <Setep3
                   planType={planType}
@@ -132,7 +136,11 @@ const MultiStepWindow = () => {
                 />{" "}
               </If>
               <If condition={currentStep === 4}>
-              <Step4 selectedPlanPrice={selectedPlanPrice} planType={planType}  /> 
+                <Step4
+                  selectedPlanPrice={selectedPlanPrice}
+                  planType={planType}
+                  selectedPlanName={selectedPlanName} // Pass the selected plan name to Step 4
+                />
               </If>
             </div>
           </div>

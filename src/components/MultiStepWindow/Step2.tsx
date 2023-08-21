@@ -41,6 +41,7 @@ interface Step2Props {
   toggleState: boolean;
   setToggleState: Dispatch<SetStateAction<boolean>>;
   setPlanPrice: Dispatch<SetStateAction<number>>;
+  setSelectedPlanName: Dispatch<SetStateAction<string>>;
 }
 
 const Step2: React.FC<Step2Props> = ({
@@ -50,6 +51,8 @@ const Step2: React.FC<Step2Props> = ({
   setSelectedCard,
   onPlanTypeChange,
   setPlanPrice, // Receive the selected plan price as a prop
+  //selectedPlan
+  setSelectedPlanName,
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggleState(e.target.checked);
@@ -95,7 +98,8 @@ const Step2: React.FC<Step2Props> = ({
 
     // Set the selected plan's price in the state
     setPlanPrice(selectedPlanPrice);
-  }, [selectedCard, toggleState, setPlanPrice]);
+    setSelectedPlanName(selectedPlan.name);
+  }, [selectedCard, toggleState, setPlanPrice, setSelectedPlanName]);
   return (
     <div>
       <div className="title">
@@ -135,3 +139,6 @@ const Step2: React.FC<Step2Props> = ({
 };
 
 export default Step2;
+function setSelectedPlanName(name: string) {
+  throw new Error("Function not implemented.");
+}
