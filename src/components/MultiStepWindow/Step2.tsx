@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, Dispatch, SetStateAction } from "react";
-import { useLocation } from "react-router-dom";
 import { If } from "tsx-control-statements/components";
 import Card from "../UILiberary/Card/Card";
 import Icon from "../../assets/images/icon-arcade.svg";

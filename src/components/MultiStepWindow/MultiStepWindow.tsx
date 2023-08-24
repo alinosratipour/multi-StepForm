@@ -51,6 +51,9 @@ const MultiStepWindow = () => {
     }
   };
 
+  const jumpToStep2 = () => {
+    setCurrentStep(2);
+  };
   const [values, setValues] = useState<{ [key: string]: string }>({
     name: "",
     email: "",
@@ -140,7 +143,7 @@ const MultiStepWindow = () => {
                   selectedPlanPrice={selectedPlanPrice}
                   planType={planType}
                   selectedPlanName={selectedPlanName} // Pass the selected plan name to Step 4
-                
+                  onJumpToStep2={jumpToStep2}
                 />
               </If>
             </div>
