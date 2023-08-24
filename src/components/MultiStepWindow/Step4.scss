@@ -1,0 +1,15 @@
+.selected-addons {
+  background-color: hsl(231, 100%, 99%);
+  padding: 20px;
+  display: flex;
+  align-content: space-between;
+  
+}
+
+.planName{
+    color: hsl(213, 96%, 18%);
+}
+.price{
+    width: 100%;
+    text-align: right;
+}

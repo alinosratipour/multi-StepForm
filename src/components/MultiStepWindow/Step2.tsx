@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, Dispatch, SetStateAction } from "react";
+import { useLocation } from "react-router-dom";
 import { If } from "tsx-control-statements/components";
 import Card from "../UILiberary/Card/Card";
 import Icon from "../../assets/images/icon-arcade.svg";
@@ -54,6 +55,7 @@ const Step2: React.FC<Step2Props> = ({
   //selectedPlan
   setSelectedPlanName,
 }) => {
+  
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggleState(e.target.checked);
     onPlanTypeChange(e);
@@ -139,6 +141,3 @@ const Step2: React.FC<Step2Props> = ({
 };
 
 export default Step2;
-function setSelectedPlanName(name: string) {
-  throw new Error("Function not implemented.");
-}

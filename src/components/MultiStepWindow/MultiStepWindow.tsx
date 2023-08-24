@@ -11,7 +11,7 @@ import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
 import Setep3 from "./Setep3";
 import Step4 from "./Step4";
-import { SelectedPlanContext } from "../../context/SelectedPlanContext";
+
 // ### Primary
 
 // - Marine blue: hsl(213, 96%, 18%)
@@ -140,6 +140,7 @@ const MultiStepWindow = () => {
                   selectedPlanPrice={selectedPlanPrice}
                   planType={planType}
                   selectedPlanName={selectedPlanName} // Pass the selected plan name to Step 4
+                
                 />
               </If>
             </div>
