@@ -17,14 +17,14 @@ const Step4: React.FC<Step4Props> = ({
   return (
     <div className="summary">
       <h1>Finishing up</h1>
-      <p>Double-check everything looks OK before confirming.</p>
+      <p className="desciption">Double-check everything looks OK before confirming.</p>
       <div className="selected-addons">
         <div className="planName">
         
-          <span>
-            {selectedPlanName}({planType === "monthly" ? "Monthly" : "Yearly"}){" "}
-            <a className="back" onClick={onJumpToStep2}>change</a>
-          </span>
+          <div className="link-wrapper">
+           <div >{selectedPlanName} ({planType === "monthly" ? "Monthly" : "Yearly"}){" "}</div> 
+            <a className="link" onClick={onJumpToStep2}>Change</a>
+          </div>
         </div>
 
         <div className="price">
