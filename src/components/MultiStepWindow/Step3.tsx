@@ -1,16 +1,19 @@
+import React, { useEffect } from "react";
 import PlanCard from "../UILiberary/ToggleSwitch/PlanCard/PlanCard";
 import { addOns } from "../../data/addOns.js";
-import { useState, useEffect } from "react";
+import { useAddonsContext } from "../../context/AddonsContext"
 
 interface Setep3Props {
   planType: string;
   toggleState: boolean;
   selectedCard: number;
-  
 }
 
-const Setep3: React.FC<Setep3Props> = ({ planType}) => {
-  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+const Setep3: React.FC<Setep3Props> = ({
+  planType,
+
+}) => {
+  const { selectedAddOns, setSelectedAddOns } = useAddonsContext(); // Access the context
 
   // Load selected add-ons from local storage on component mount
   useEffect(() => {
@@ -18,18 +21,17 @@ const Setep3: React.FC<Setep3Props> = ({ planType}) => {
     if (storedAddOns) {
       setSelectedAddOns(JSON.parse(storedAddOns));
     }
-  }, []);
+  }, [setSelectedAddOns]);
 
   // Update selected add-ons and store in local storage
   const toggleAddOnSelection = (addOnName: string) => {
-    setSelectedAddOns((currentSelection) => {
-      const updatedSelection = currentSelection.includes(addOnName)
-        ? currentSelection.filter((name) => name !== addOnName)
-        : [...currentSelection, addOnName];
+    const updatedSelection = selectedAddOns.includes(addOnName)
+      ? selectedAddOns.filter((name) => name !== addOnName)
+      : [...selectedAddOns, addOnName];
 
-      localStorage.setItem("selectedAddOns", JSON.stringify(updatedSelection));
-      return updatedSelection;
-    });
+    setSelectedAddOns(updatedSelection);
+
+    localStorage.setItem("selectedAddOns", JSON.stringify(updatedSelection));
   };
 
   return (
@@ -56,7 +58,7 @@ const Setep3: React.FC<Setep3Props> = ({ planType}) => {
               colorscheme={isHighlighted ? "primary" : undefined}
             >
               <div className="checkbox-container">
-                <label className="custom-checkbox">
+                {/* <label className="custom-checkbox">
                   <input
                     type="checkbox"
                     className="checkbox"
@@ -64,7 +66,13 @@ const Setep3: React.FC<Setep3Props> = ({ planType}) => {
                     onChange={() => toggleAddOnSelection(item.name)}
                   />
                   <span className="checkmark"></span>
-                </label>
+                </label> */}
+                <input
+                    type="checkbox"
+                    className="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleAddOnSelection(item.name)}
+                  />
               </div>
             </PlanCard>
           );

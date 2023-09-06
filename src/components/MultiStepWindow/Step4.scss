@@ -3,6 +3,9 @@
   padding: 20px;
   display: flex;
   align-content: space-between;
+  border-bottom: 1px solid gray;
+  padding-bottom: 30px;
+  
 }
 
 .planName {
@@ -16,6 +19,7 @@
 .desciption {
   padding-bottom: 10px;
   font-weight: 100;
+
 }
 
 .link {
@@ -27,9 +31,21 @@
   height: 0px;
   font-size: 16px;
   margin-top: 8px;
+  
 }
 .link-wrapper {
   width: 300px;
   display: flex;
   flex-direction: column;
+  
+}
+.addons-list{
+ display: flex;
+ flex-direction: column;
+gap: 40px;
+
+}
+
+.item-name{
+  padding-top: 40px;
 }
