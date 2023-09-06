@@ -9,7 +9,7 @@ import Step2 from "./Step2";
 import { validateInput } from "../../utils/validationUtils";
 import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
-import Setep3 from "./Setep3";
+import Setep3 from "./Step3";
 import Step4 from "./Step4";
 
 // ### Primary
