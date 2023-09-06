@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./PlanCard.scss";
 import classNames from "classnames";
 
@@ -11,33 +10,20 @@ export interface CardProps extends React.PropsWithChildren<{}> {
   price?: string;
   checked?: boolean; // Add a new prop for the checked state
   onClick?: () => void;
-  // onChange?:()=>void;
-  //onChange?: (checked: boolean) => void;
 }
 
 const PlanCard: React.FC<CardProps> = ({
   children,
   colorscheme,
   onClick,
-  //onChange,
   title,
   description,
   icon,
   price,
   checked,
-  ...props
 }) => {
-  // const [isChecked, setIsChecked] = useState(checked);
-
-  // const handleCardClick = () => {
-  //   setIsChecked(!isChecked);
-  //   if (onClick) {
-  //     onClick();
-  //   }
-  // };
-
   const cardClasses = classNames("add-on-box", {
-    "bg--color": colorscheme === "primary",
+    "bg--color2": colorscheme === "primary",
   });
 
   return (

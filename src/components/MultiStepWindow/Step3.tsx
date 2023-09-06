@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import PlanCard from "../UILiberary/ToggleSwitch/PlanCard/PlanCard";
 import { addOns } from "../../data/addOns.js";
-import { useAddonsContext } from "../../context/AddonsContext"
+import { useAddonsContext } from "../../context/AddonsContext";
+import "./Step3.scss";
 
 interface Setep3Props {
   planType: string;
@@ -9,10 +10,7 @@ interface Setep3Props {
   selectedCard: number;
 }
 
-const Setep3: React.FC<Setep3Props> = ({
-  planType,
-
-}) => {
+const Setep3: React.FC<Setep3Props> = ({ planType }) => {
   const { selectedAddOns, setSelectedAddOns } = useAddonsContext(); // Access the context
 
   // Load selected add-ons from local storage on component mount
@@ -58,21 +56,12 @@ const Setep3: React.FC<Setep3Props> = ({
               colorscheme={isHighlighted ? "primary" : undefined}
             >
               <div className="checkbox-container">
-                {/* <label className="custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="checkbox"
-                    checked={isChecked}
-                    onChange={() => toggleAddOnSelection(item.name)}
-                  />
-                  <span className="checkmark"></span>
-                </label> */}
                 <input
-                    type="checkbox"
-                    className="checkbox"
-                    checked={isChecked}
-                    onChange={() => toggleAddOnSelection(item.name)}
-                  />
+                  type="checkbox"
+                  className="checkbox"
+                  checked={isChecked}
+                  onChange={() => toggleAddOnSelection(item.name)}
+                />
               </div>
             </PlanCard>
           );

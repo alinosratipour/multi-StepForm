@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
   subtitle,
   icon,
   content,
-  ...props
+  
 }) => {
   const cardClasses = classNames("cardWrapper", {
     "bg--color": colorscheme === "primary",
