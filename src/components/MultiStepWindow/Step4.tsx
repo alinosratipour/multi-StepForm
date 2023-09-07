@@ -32,23 +32,27 @@ const Step4: React.FC<Step4Props> = ({
             <a className="link" onClick={onJumpToStep2}>
               Change
             </a>
+
+             {/* Display selected add-ons */}
+      <div className="item-name">
+       
+       <div className="addons-list">
+         {selectedAddOns.map((addOn) => (
+           <span key={addOn}>{addOn}</span>
+         ))}
+       </div>
+     </div>
           </div>
         
         </div>
         <div className="price">
           ${selectedPlanPrice}/{planType === "monthly" ? "mo" : "yr"}
         </div>
+
+        
       </div>
       
-      {/* Display selected add-ons */}
-      <div className="item-name">
-       
-        <div className="addons-list">
-          {selectedAddOns.map((addOn) => (
-            <span key={addOn}>{addOn}</span>
-          ))}
-        </div>
-      </div>
+     
     </div>
   );
 };

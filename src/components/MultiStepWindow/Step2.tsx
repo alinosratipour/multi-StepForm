@@ -51,10 +51,8 @@ const Step2: React.FC<Step2Props> = ({
   setSelectedCard,
   onPlanTypeChange,
   setPlanPrice, // Receive the selected plan price as a prop
-  //selectedPlan
   setSelectedPlanName,
 }) => {
-  
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggleState(e.target.checked);
     onPlanTypeChange(e);

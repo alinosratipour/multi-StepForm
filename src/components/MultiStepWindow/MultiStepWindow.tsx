@@ -135,7 +135,7 @@ const MultiStepWindow = () => {
                 <Setep3
                   planType={planType}
                   toggleState={toggleState}
-                  selectedCard={selectedCard}
+                  selectedCard={selectedCard}                
                 />{" "}
               </If>
               <If condition={currentStep === 4}>
