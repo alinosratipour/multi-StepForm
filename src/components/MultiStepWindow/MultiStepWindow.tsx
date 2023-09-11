@@ -9,7 +9,7 @@ import Step2 from "./Step2";
 import { validateInput } from "../../utils/validationUtils";
 import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
-import Setep3 from "./Step3";
+import Step3 from "./Step3";
 import Step4 from "./Step4";
 
 // ### Primary
@@ -132,7 +132,7 @@ const MultiStepWindow = () => {
               </If>
 
               <If condition={currentStep === 3}>
-                <Setep3
+                <Step3
                   planType={planType}
                   toggleState={toggleState}
                   selectedCard={selectedCard}                
