@@ -1,25 +1,16 @@
 .selected-addons {
   background-color: hsl(231, 100%, 99%);
   padding: 20px;
-  display: flex;
-  align-content: space-between;
   border-bottom: 1px solid gray;
   padding-bottom: 30px;
-  
 }
 
-.planName {
-  color: hsl(213, 96%, 18%);
+.planPrice {
   padding-bottom: 10px;
 }
-.price {
-  width: 100%;
-  text-align: right;
-}
-.desciption {
-  padding-bottom: 10px;
+.description {
+  padding-bottom: 30px;
   font-weight: 100;
-
 }
 
 .link {
@@ -31,21 +22,38 @@
   height: 0px;
   font-size: 16px;
   margin-top: 8px;
-  
 }
-.link-wrapper {
-  width: 300px;
+
+.addons-list {
   display: flex;
   flex-direction: column;
-  
+  gap: 40px;
+  color: hsl(231, 11%, 63%);
+  font-family: headerFont;
+  font-size: 14px;
 }
-.addons-list{
- display: flex;
- flex-direction: column;
-gap: 40px;
-
+.addonContent {
+  display: flex;
+  justify-content: space-between;
 }
-
-.item-name{
+.item-name {
   padding-top: 40px;
+}
+
+.planPrice {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  color: hsl(243, 100%, 62%);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+.total-text {
+  color: hsl(231, 11%, 63%);
+  font-size: 14px;
 }

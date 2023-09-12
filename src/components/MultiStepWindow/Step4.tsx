@@ -17,6 +17,14 @@ const Step4: React.FC<Step4Props> = ({
 }) => {
   const { selectedAddOns } = useAddonsContext();
 
+  // Calculate the total price by summing up selected add-ons and selected plan price
+  const totalSelectedPrice = selectedAddOns.reduce((total, addon) => {
+    return (
+      total +
+      (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
+    );
+  }, selectedPlanPrice);
+
   return (
     <div className="summary">
       <h1>Finishing up</h1>
@@ -26,9 +34,15 @@ const Step4: React.FC<Step4Props> = ({
       <div className="selected-addons">
         <div className="planName">
           <div className="link-wrapper">
-            <div>
-              {selectedPlanName} (
-              {planType === "monthly" ? "Monthly" : "Yearly"})
+            <div className="planPrice">
+              <div>
+                {selectedPlanName} (
+                {planType === "monthly" ? "Monthly" : "Yearly"})
+              </div>
+              <div >
+                {/* Display the selected plan price */}${selectedPlanPrice}/
+                {planType === "monthly" ? "mo" : "yr"}
+              </div>
             </div>
             <a className="link" onClick={onJumpToStep2}>
               Change
@@ -38,7 +52,7 @@ const Step4: React.FC<Step4Props> = ({
             <div className="item-name">
               <div className="addons-list">
                 {selectedAddOns.map((addon) => (
-                  <div key={addon.name}>
+                  <div key={addon.name} className="addonContent">
                     <span>{addon.name}</span>
                     <span>
                       <span>
@@ -54,9 +68,11 @@ const Step4: React.FC<Step4Props> = ({
             </div>
           </div>
         </div>
-        <div className="price">
-          ${selectedPlanPrice}/{planType === "monthly" ? "mo" : "yr"}
-        </div>
+      </div>
+      {/* Display the total price below */}
+      <div className="total-price">
+        <span className="total-text">Total ( {planType === "monthly" ? "per month" : "per year"})</span>
+        <span>+${totalSelectedPrice}/{planType === "monthly" ? "mo" : "yr"}</span>
       </div>
     </div>
   );
