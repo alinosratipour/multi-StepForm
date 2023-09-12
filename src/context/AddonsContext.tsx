@@ -1,9 +1,18 @@
-// AddonsContext.tsx
 import React, { createContext, useContext, useState } from "react";
 
+
+interface Addon {
+  name: string;
+  description: string;
+  price: {
+    monthly: number;
+    yearly: number;
+  };
+}
+
 interface AddonsContextType {
-  selectedAddOns: string[];
-  setSelectedAddOns: (selectedAddOns: string[]) => void;
+  selectedAddOns: Addon[]; // Make sure Addon is correctly defined
+  setSelectedAddOns: (selectedAddOns: Addon[]) => void;
 }
 
 const AddonsContext = createContext<AddonsContextType | undefined>(undefined);
@@ -16,9 +25,8 @@ export const useAddonsContext = () => {
   return context;
 };
 
-// Specify children as a prop in the AddonsProvider component
 export const AddonsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [selectedAddOns, setSelectedAddOns] = useState<Addon[]>([]);
 
   return (
     <AddonsContext.Provider value={{ selectedAddOns, setSelectedAddOns }}>

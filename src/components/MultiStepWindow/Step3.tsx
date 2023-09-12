@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PlanCard from "../UILiberary/ToggleSwitch/PlanCard/PlanCard";
-import { addOns } from "../../data/addOns.js";
+import { addOns } from "../../data/addOns";
 import { useAddonsContext } from "../../context/AddonsContext";
 import "./Step3.scss";
 
@@ -10,8 +10,18 @@ interface Step3Props {
   selectedCard: number;
 }
 
-const Setep3: React.FC<Step3Props> = ({ planType }) => {
-  const { selectedAddOns, setSelectedAddOns } = useAddonsContext(); // Access the context
+interface Addon {
+  name: string;
+  description: string;
+  price: {
+    monthly: number;
+    yearly: number;
+  };
+}
+
+const Step3: React.FC<Step3Props> = ({ planType }) => {
+  const { selectedAddOns, setSelectedAddOns } = useAddonsContext();
+
 
   // Load selected add-ons from local storage on component mount
   useEffect(() => {
@@ -22,15 +32,27 @@ const Setep3: React.FC<Step3Props> = ({ planType }) => {
   }, [setSelectedAddOns]);
 
   // Update selected add-ons and store in local storage
-  const toggleAddOnSelection = (addOnName: string) => {
-    const updatedSelection = selectedAddOns.includes(addOnName)
-      ? selectedAddOns.filter((name) => name !== addOnName)
-      : [...selectedAddOns, addOnName];
-
+  const toggleAddOnSelection = (selectedAddon: Addon) => {
+    const isSelected = selectedAddOns.some((addon) => addon.name === selectedAddon.name);
+ 
+  
+    let updatedSelection;
+  
+    if (isSelected) {
+      // If the add-on is already selected, remove it
+      updatedSelection = selectedAddOns.filter((addon) => addon.name !== selectedAddon.name);
+    } else {
+      // If the add-on is not selected, add it
+      updatedSelection = [...selectedAddOns, selectedAddon];
+    }
+  console.log(updatedSelection);
+  
     setSelectedAddOns(updatedSelection);
-
+  
+    // Store the updated selection in local storage
     localStorage.setItem("selectedAddOns", JSON.stringify(updatedSelection));
   };
+  
 
   return (
     <div className="title">
@@ -43,8 +65,8 @@ const Setep3: React.FC<Step3Props> = ({ planType }) => {
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
-          const isChecked = selectedAddOns.includes(item.name);
-          const isHighlighted = isChecked;
+          const isSelected = selectedAddOns.some((addon) => addon.name === item.name);
+          const isHighlighted = isSelected;
 
           return (
             <PlanCard
@@ -52,15 +74,15 @@ const Setep3: React.FC<Step3Props> = ({ planType }) => {
               title={item.name}
               description={item.description}
               price={formattedPrice}
-              onClick={() => toggleAddOnSelection(item.name)}
+              onClick={() => toggleAddOnSelection(item)}
               colorscheme={isHighlighted ? "primary" : undefined}
             >
               <div className="checkbox-container">
                 <input
                   type="checkbox"
                   className="checkbox"
-                  checked={isChecked}
-                  onChange={() => toggleAddOnSelection(item.name)}
+                  checked={isSelected}
+                  onChange={() => toggleAddOnSelection(item)}
                 />
               </div>
             </PlanCard>
@@ -71,4 +93,4 @@ const Setep3: React.FC<Step3Props> = ({ planType }) => {
   );
 };
 
-export default Setep3;
+export default Step3;
