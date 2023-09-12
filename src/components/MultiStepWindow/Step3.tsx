@@ -22,7 +22,6 @@ interface Addon {
 const Step3: React.FC<Step3Props> = ({ planType }) => {
   const { selectedAddOns, setSelectedAddOns } = useAddonsContext();
 
-
   // Load selected add-ons from local storage on component mount
   useEffect(() => {
     const storedAddOns = localStorage.getItem("selectedAddOns");
@@ -33,26 +32,27 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
 
   // Update selected add-ons and store in local storage
   const toggleAddOnSelection = (selectedAddon: Addon) => {
-    const isSelected = selectedAddOns.some((addon) => addon.name === selectedAddon.name);
- 
-  
+    const isSelected = selectedAddOns.some(
+      (addon) => addon.name === selectedAddon.name
+    );
+
     let updatedSelection;
-  
+
     if (isSelected) {
       // If the add-on is already selected, remove it
-      updatedSelection = selectedAddOns.filter((addon) => addon.name !== selectedAddon.name);
+      updatedSelection = selectedAddOns.filter(
+        (addon) => addon.name !== selectedAddon.name
+      );
     } else {
       // If the add-on is not selected, add it
       updatedSelection = [...selectedAddOns, selectedAddon];
     }
-  console.log(updatedSelection);
-  
+
     setSelectedAddOns(updatedSelection);
-  
+
     // Store the updated selection in local storage
     localStorage.setItem("selectedAddOns", JSON.stringify(updatedSelection));
   };
-  
 
   return (
     <div className="title">
@@ -65,7 +65,9 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
-          const isSelected = selectedAddOns.some((addon) => addon.name === item.name);
+          const isSelected = selectedAddOns.some(
+            (addon) => addon.name === item.name
+          );
           const isHighlighted = isSelected;
 
           return (
@@ -82,7 +84,7 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
                   type="checkbox"
                   className="checkbox"
                   checked={isSelected}
-                  onChange={() => toggleAddOnSelection(item)}
+                 // onChange={() => toggleAddOnSelection(item)}
                 />
               </div>
             </PlanCard>
