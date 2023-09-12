@@ -4,13 +4,13 @@ import { addOns } from "../../data/addOns.js";
 import { useAddonsContext } from "../../context/AddonsContext";
 import "./Step3.scss";
 
-interface Setep3Props {
+interface Step3Props {
   planType: string;
   toggleState: boolean;
   selectedCard: number;
 }
 
-const Setep3: React.FC<Setep3Props> = ({ planType }) => {
+const Setep3: React.FC<Step3Props> = ({ planType }) => {
   const { selectedAddOns, setSelectedAddOns } = useAddonsContext(); // Access the context
 
   // Load selected add-ons from local storage on component mount
