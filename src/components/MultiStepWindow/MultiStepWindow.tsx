@@ -51,6 +51,15 @@ const MultiStepWindow = () => {
     }
   };
 
+const confirmButton =()=>{
+setCurrentStep(currentStep);
+}
+
+// const buttonClasses = classNames("form-text-fields-container", {
+//   "button--small": size === "ali",
+  
+// });
+
   const jumpToStep2 = () => {
     setCurrentStep(2);
   };
@@ -135,7 +144,7 @@ const MultiStepWindow = () => {
                 <Step3
                   planType={planType}
                   toggleState={toggleState}
-                  selectedCard={selectedCard}                
+                  selectedCard={selectedCard}
                 />{" "}
               </If>
               <If condition={currentStep === 4}>
@@ -153,14 +162,26 @@ const MultiStepWindow = () => {
             <a onClick={goBack} className={currentStep <= 1 ? "hide" : "back"}>
               Go Back
             </a>
-            <CustomButton
-              colorscheme="primary"
-              size="md"
-              ref={ref}
-              onClick={moveToNextStep}
-            >
-              Next Step
-            </CustomButton>
+            <If condition={currentStep !== 4}>
+              <CustomButton
+                colorscheme="primary"
+                size="md"
+                ref={ref}
+                onClick={moveToNextStep}
+              >
+                Next Step
+              </CustomButton>
+            </If>
+            <If condition={currentStep === 4}>
+              <CustomButton
+                colorscheme="primary"
+                size="md"
+                ref={ref}
+                onClick={confirmButton}
+              >
+                Confirm
+              </CustomButton>
+            </If>
           </div>
         </div>
       </div>
