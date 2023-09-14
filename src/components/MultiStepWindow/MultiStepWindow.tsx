@@ -11,6 +11,7 @@ import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
+import ThanksIcon from "../../assets/images/icon-thank-you.svg";
 
 // ### Primary
 
@@ -34,6 +35,7 @@ const MultiStepWindow = () => {
   const [selectedCard, setSelectedCard] = useState(0);
   const [planType, setPlanType] = useState("monthly");
   const [selectedPlanName, setSelectedPlanName] = useState(""); // Add this state
+  const [confirmationClicked, setConfirmationClicked] = useState(false);
 
   const stepText = {
     "STEP 1": "YOUR INFO",
@@ -51,14 +53,14 @@ const MultiStepWindow = () => {
     }
   };
 
-const confirmButton =()=>{
-setCurrentStep(currentStep);
-}
+  const confirmButton = () => {
+    setCurrentStep(currentStep);
+  };
 
-// const buttonClasses = classNames("form-text-fields-container", {
-//   "button--small": size === "ali",
-  
-// });
+  // const buttonClasses = classNames("form-text-fields-container", {
+  //   "button--small": size === "ali",
+
+  // });
 
   const jumpToStep2 = () => {
     setCurrentStep(2);
@@ -147,7 +149,7 @@ setCurrentStep(currentStep);
                   selectedCard={selectedCard}
                 />{" "}
               </If>
-              <If condition={currentStep === 4}>
+              <If condition={currentStep === 4 && !confirmationClicked}>
                 <Step4
                   selectedPlanPrice={selectedPlanPrice}
                   planType={planType}
@@ -155,14 +157,36 @@ setCurrentStep(currentStep);
                   onJumpToStep2={jumpToStep2}
                 />
               </If>
+              <If condition={confirmationClicked}>
+                {/* Display confirmation message */}
+                <div className="messageContainer">
+                  <img
+                    src={ThanksIcon}
+                    width="70px"
+                    height="70px"
+                    alt="message confirmation"
+                  />
+                  <h2 className="step-4-thanks">Thank you</h2>
+                  <div className="confirmation-message">
+                    Thanks for confirming your subscription! We hope you have<br/>
+                    fun using our platform. If you ever need support, please
+                    feel free to email us at support@loremgaming.com.
+                  </div>
+                </div>
+              </If>
             </div>
           </div>
 
           <div className="button-wrapper">
-            <a onClick={goBack} className={currentStep <= 1 ? "hide" : "back"}>
-              Go Back
-            </a>
-            <If condition={currentStep !== 4}>
+            <If condition={!confirmationClicked}>
+              <a
+                onClick={goBack}
+                className={currentStep <= 1 ? "hide" : "back"}
+              >
+                Go Back
+              </a>
+            </If>
+            <If condition={currentStep !== 4 && !confirmationClicked}>
               <CustomButton
                 colorscheme="primary"
                 size="md"
@@ -172,12 +196,12 @@ setCurrentStep(currentStep);
                 Next Step
               </CustomButton>
             </If>
-            <If condition={currentStep === 4}>
+            <If condition={currentStep === 4 && !confirmationClicked}>
               <CustomButton
-                colorscheme="primary"
+                colorscheme="secondery"
                 size="md"
                 ref={ref}
-                onClick={confirmButton}
+                onClick={() => setConfirmationClicked(true)}
               >
                 Confirm
               </CustomButton>

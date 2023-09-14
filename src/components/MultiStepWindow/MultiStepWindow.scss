@@ -173,5 +173,21 @@ p {
   font-size: 11px;
 }
 
+.messageContainer {
+  margin-top: 140px;
+  text-align: center;
+}
 
+.confirmation-message {
+  font-family:headerFont;
+  padding-top: 20px;
+  color: hsl(229, 6%, 65%);
+  font-weight: 900;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
 
+.step-4-thanks {
+  padding-top: 20px;
+  font-size: 2rem;
+}
