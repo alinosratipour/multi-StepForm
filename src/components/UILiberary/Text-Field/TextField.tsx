@@ -10,6 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   errorMessagePosition?: "default" | "above";
+  inputSize?: "small" | "medium" | "large"; // Rename the size prop
 }
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
@@ -20,6 +21,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     onChange,
     error,
     errorMessagePosition = "default",
+    inputSize, // Rename the size prop in the function arguments
     ...otherProps
   },
   ref
@@ -29,10 +31,17 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     "error-message-above": errorMessagePosition === "above" && error,
   });
 
+  const inputClassName = classNames('input', {
+    'input-border-error': error,
+    'input-small': inputSize === 'small', // Use inputSize here
+    'input-medium': inputSize === 'medium', // Use inputSize here
+    'input-large': inputSize === 'large', // Use inputSize here
+  });
+
   return (
     <div className="text-field">
       <label className="label">
-     {label}
+        {label}
         {error && errorMessagePosition === "above" && (
           <span className={errorMessageClassName}>{error}</span>
         )}
@@ -43,7 +52,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         placeholder={placeholder}
         ref={ref}
         onChange={onChange}
-        className={error ? 'input-border-error' : ""}
+        className={inputClassName} // Use the inputClassName here
       />
       {error && errorMessagePosition === "default" && (
         <span className={errorMessageClassName}>{error}</span>

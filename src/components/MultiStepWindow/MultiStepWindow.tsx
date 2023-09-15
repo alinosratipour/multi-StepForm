@@ -53,15 +53,7 @@ const MultiStepWindow = () => {
     }
   };
 
-  const confirmButton = () => {
-    setCurrentStep(currentStep);
-  };
-
-  // const buttonClasses = classNames("form-text-fields-container", {
-  //   "button--small": size === "ali",
-
-  // });
-
+  
   const jumpToStep2 = () => {
     setCurrentStep(2);
   };
@@ -208,7 +200,12 @@ const MultiStepWindow = () => {
             </If>
           </div>
         </div>
+
+        
       </div>
+
+
+
     </div>
   );
 };

@@ -20,7 +20,7 @@ p {
 
 .container {
   width: 100%;
-  background-color: #bde0ee;
+  background-color:hsl(217, 100%, 97%);
   height: 100vh;
   margin: auto;
   display: flex;
@@ -58,7 +58,6 @@ p {
   background-image: url("../../assets/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   border-radius: 15px;
-
   background-size: cover;
 }
 .title {
@@ -77,7 +76,7 @@ p {
   color: hsl(213, 96%, 18%);
   font-weight: 700;
   font-size: 16px;
-  min-height: 400px;
+  //  min-height: 400px;
   width: 95%;
 }
 
@@ -179,7 +178,7 @@ p {
 }
 
 .confirmation-message {
-  font-family:headerFont;
+  font-family: headerFont;
   padding-top: 20px;
   color: hsl(229, 6%, 65%);
   font-weight: 900;
@@ -190,4 +189,70 @@ p {
 .step-4-thanks {
   padding-top: 20px;
   font-size: 2rem;
+}
+
+/* When the browser is at least 768px and above */
+@media screen and (max-width: 1112px) {
+  .container {
+    background-color: #ffffff;
+  
+    
+  }
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 170px;
+    text-align: center;
+    padding: 0px;
+    gap: 0px;
+    background-color: hsl(217, 100%, 97%);
+  
+    
+  }
+  .form-text-fields-container {
+    margin: auto;
+    background-color: hsl(0, 0%, 100%);
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 95%;
+    border-radius: 15px;
+    margin-top: -150px;
+    padding-bottom: 40px;
+  }
+
+  .form-left-side {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+    border-radius: 0;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    text-align: center;
+  }
+  .form-right-side {
+    text-align: center;
+  }
+  .button-wrapper {
+    padding-top: 90px;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 90px;
+  }
+  .title {
+    font-weight: 900;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 15px;
+    font-size: 0.9rem;
+  }
+  
 }

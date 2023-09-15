@@ -2,6 +2,8 @@ label {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
+
+ // margin: auto;
 }
 input {
   padding: 15px;
@@ -13,10 +15,14 @@ input {
   outline: none;
   width: 85%;
   font-weight: 700;
+
 }
 .text-field {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
 }
 
 .error-message-above {
@@ -30,8 +36,18 @@ input {
 }
 
 .label {
-  width: 83%;
+  width:90%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+
+}
+.input-small{
+  width: 30%;
+}
+.input-medium{
+  width: 50%;
+}
+.input-large{
+  width: 90%;
 }

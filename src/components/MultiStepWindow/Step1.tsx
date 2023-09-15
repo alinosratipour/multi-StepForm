@@ -29,6 +29,9 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.name}
           error={errors.name}
           errorMessagePosition="above"
+          inputSize="large"
+          
+         
         />
         <EmailField
           label="Email Address"
@@ -38,6 +41,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.email}
           error={errors.email}
           errorMessagePosition="above"
+          inputSize="large"
         />
         <TextField
           label="Phone Number"
@@ -47,6 +51,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.phone}
           error={errors.phone}
           errorMessagePosition="above"
+          inputSize="large"
         />
       </form>
     </div>
