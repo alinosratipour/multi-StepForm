@@ -20,12 +20,12 @@ p {
 
 .container {
   width: 100%;
-  background-color:hsl(217, 100%, 97%);
-  height: 100vh;
-  margin: auto;
+  background-color: hsl(217, 100%, 97%);
+   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .form-content {
@@ -35,11 +35,10 @@ p {
   display: flex;
   background-color: #ffffff;
   border-radius: 15px;
-  width: 50%;
   gap: 100px;
-  min-width: 400px;
-  height: 650px;
+ // height: 650px;
   padding-right: 60px;
+
 }
 .form-right-side {
   display: flex;
@@ -64,12 +63,7 @@ p {
   font-weight: 900;
 }
 
-.form-content-wrapper {
-  background-color: #ffffff;
-  border-radius: 15px;
-  margin: auto;
-  width: 70%;
-}
+
 
 .form-text-fields-container {
   font-family: headerFont;
@@ -192,60 +186,65 @@ p {
 }
 
 /* When the browser is at least 768px and above */
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 768px) {
   .container {
-    background-color: #ffffff;
-  
-    
+    background-color: hsl(217, 100%, 97%);
+    height: 100vh;
   }
   .form-content {
     display: flex;
     flex-direction: column;
     width: 100%;
     border-radius: 0;
-    margin-bottom: 170px;
+
     text-align: center;
     padding: 0px;
     gap: 0px;
-    background-color: hsl(217, 100%, 97%);
-  
-    
+position: fixed;
+top: 0;
+ 
   }
+  .form-header {
+  padding-top: 60px;
+
+}
   .form-text-fields-container {
-    margin: auto;
     background-color: hsl(0, 0%, 100%);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    width: 95%;
+    margin: auto;
+    width: 90%;
     border-radius: 15px;
-    margin-top: -150px;
+    margin-top: -102px;
     padding-bottom: 40px;
   }
 
   .form-left-side {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
-    border-radius: 0;
-    padding-bottom: 40px;
-    display: flex;
+     background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+     border-radius: 0;
+     display: flex;
     justify-content: center;
-    align-items: center;
+     align-items: flex-start;
+   // height: 190px;
+    
+  
+
   }
-  .container {
-    text-align: center;
-  }
+
   .form-right-side {
+
     text-align: center;
+    background-color: hsl(217, 100%, 97%);
+   
   }
   .button-wrapper {
-    padding-top: 90px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: right;
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 90px;
   }
   .title {
     font-weight: 900;
@@ -255,4 +254,6 @@ p {
     font-size: 0.9rem;
   }
   
+
+
 }

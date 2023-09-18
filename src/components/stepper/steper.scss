@@ -55,19 +55,21 @@
 }
 
 /* When the browser is at least 600px and above */
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 768px) {
   .steperWrapper {
     display: flex;
     flex-direction: row;
     gap: 1px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+
   }
 
   .stepBlock {
     display: flex;
     gap: 20px;
+    
   }
 
   .stepInfo {

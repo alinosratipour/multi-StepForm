@@ -104,12 +104,12 @@ const MultiStepWindow = () => {
   return (
     <div className="container">
       <div className="form-content">
-        <div className="form-left-side">
+         <div className="form-left-side">
           <StepNavigation
             stepNumberArray={stepText}
             currentStep={currentStep}
           ></StepNavigation>
-        </div>
+        </div> 
         <div className="form-right-side">
           <div className="form-header">
             <div className="form-text-fields-container">
@@ -198,7 +198,7 @@ const MultiStepWindow = () => {
                 Confirm
               </CustomButton>
             </If>
-          </div>
+          </div> 
         </div>
 
         
