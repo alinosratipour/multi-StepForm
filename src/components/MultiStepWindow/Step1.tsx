@@ -16,9 +16,9 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
     <div>
       <form>
-        <div className="title">
-          <h1>Personal Info</h1>
-          <p>Please provide your name, email address, and phone number.</p>
+        <div>
+          <h1 className="step1-header">Personal Info</h1>
+          <p className="step1-subheader">Please provide your name, email address, and phone number.</p>
         </div>
 
         <TextField

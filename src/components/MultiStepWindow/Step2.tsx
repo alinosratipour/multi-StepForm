@@ -100,10 +100,10 @@ const Step2: React.FC<Step2Props> = ({
     setSelectedPlanName(selectedPlan.name);
   }, [selectedCard, toggleState, setPlanPrice, setSelectedPlanName]);
   return (
-    <div>
-      <div className="title">
-        <h1>Select your plan</h1>
-        <p>You have the option of monthly or yearly billing.</p>
+    <div >
+      <div className="step2-title">
+        <h1 className="step2-header">Select your plan</h1>
+        <p className="step2-sub-header">You have the option of monthly or yearly billing.</p>
         <div className="cardContaier">
           {plans.map((item, index) => {
             return (

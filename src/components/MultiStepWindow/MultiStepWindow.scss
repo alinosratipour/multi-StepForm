@@ -21,11 +21,10 @@ p {
 .container {
   width: 100%;
   background-color: hsl(217, 100%, 97%);
-   height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .form-content {
@@ -36,9 +35,8 @@ p {
   background-color: #ffffff;
   border-radius: 15px;
   gap: 100px;
- // height: 650px;
+  // height: 650px;
   padding-right: 60px;
-
 }
 .form-right-side {
   display: flex;
@@ -59,11 +57,9 @@ p {
   border-radius: 15px;
   background-size: cover;
 }
-.title {
+.step1-title {
   font-weight: 900;
 }
-
-
 
 .form-text-fields-container {
   font-family: headerFont;
@@ -200,42 +196,35 @@ p {
     text-align: center;
     padding: 0px;
     gap: 0px;
-position: fixed;
-top: 0;
- 
+    position: fixed;
+    top: 0;
   }
   .form-header {
-  padding-top: 60px;
-
-}
+    padding-top: 60px;
+  }
   .form-text-fields-container {
     background-color: hsl(0, 0%, 100%);
     margin: auto;
     width: 90%;
     border-radius: 15px;
-    margin-top: -102px;
+    margin-top: -140px;
     padding-bottom: 40px;
   }
 
   .form-left-side {
     background-repeat: no-repeat;
     background-size: cover;
-     background-image: url("../../assets/images/bg-sidebar-mobile.svg");
-     border-radius: 0;
-     display: flex;
+    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+    border-radius: 0;
+    display: flex;
     justify-content: center;
-     align-items: flex-start;
-   // height: 190px;
-    
-  
-
+    align-items: flex-start;
+    // height: 190px;
   }
 
   .form-right-side {
-
     text-align: center;
     background-color: hsl(217, 100%, 97%);
-   
   }
   .button-wrapper {
     padding-top: 15px;
@@ -245,15 +234,46 @@ top: 0;
     bottom: 0;
     width: 100%;
     text-align: right;
-  }
-  .title {
-    font-weight: 900;
-    text-align: left;
-    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-left: 15px;
+  }
+
+  .back {
+    padding-bottom: 10px;
     font-size: 0.9rem;
   }
-  
+}
+.step1-title {
+  font-weight: 900;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 15px;
+  font-size: 0.9rem;
+}
 
+.step2-title {
+  font-weight: 900;
+  text-align: left;
+  padding-top: 20px;
+  font-size: 0.9rem;
+}
+.step1-header{
 
+  text-align: left;
+  padding-top: 20px;
+  font-size: 1.4rem;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+
+.step1-subheader{
+  padding-left: 20px;
+  text-align: left;
+}
+.toggleContainer {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
 }
