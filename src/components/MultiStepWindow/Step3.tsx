@@ -55,9 +55,9 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
   };
 
   return (
-    <div className="title">
-      <h1>Pick add-ons</h1>
-      <p>Add-ons help enhance your gaming experience.</p>
+    <div className="step3-title">
+      <h1 className="step3-header">Pick add-ons</h1>
+      <p className="step3-subheader">Add-ons help enhance your gaming experience.</p>
 
       <div className="add-on-container">
         {addOns.map((item) => {

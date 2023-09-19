@@ -27,7 +27,7 @@ const Step4: React.FC<Step4Props> = ({
 
   return (
     <div className="summary">
-      <h1>Finishing up</h1>
+      <h1 className="step4-header">Finishing up</h1>
       <p className="description">
         Double-check everything looks OK before confirming.
       </p>

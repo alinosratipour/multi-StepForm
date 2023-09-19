@@ -57,3 +57,43 @@
   color: hsl(231, 11%, 63%);
   font-size: 14px;
 }
+
+@media screen and (max-width: 768px) {
+  .selected-addons {
+    border-bottom:none;
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+  }
+  .link-wrapper{
+  
+    text-align: left;
+  padding: 1px;
+  }
+  .item-name {
+    padding-top: 10px;
+  }
+  .addonContent {
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+  .addons-list {
+    // display: flex;
+    // flex-direction: column;
+    // gap: 40px;
+    // color: hsl(231, 11%, 63%);
+    // font-family: headerFont;
+    // font-size: 14px;
+  
+    gap: 15px;
+  }
+  .step4-header{
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 40px;
+    font-size: 1.4rem;
+  }
+ 
+}
