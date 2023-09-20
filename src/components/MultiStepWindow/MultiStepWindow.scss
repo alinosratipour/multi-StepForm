@@ -178,17 +178,15 @@ p {
   font-size: 0.9rem;
   line-height: 25px;
 }
-.ali{
+.thank-message-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-   margin-top: 50%;
-   margin-bottom: 50%;
-   width: 90%;
-   text-align: center;
-   //padding: 20px;
- 
+  margin-top: 50%;
+  margin-bottom: 50%;
+  width: 90%;
+  text-align: center;
 }
 
 .step-4-thanks {
@@ -236,13 +234,11 @@ p {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    // height: 190px;
   }
 
   .form-right-side {
     text-align: center;
     background-color: hsl(217, 100%, 97%);
- 
   }
   .button-wrapper {
     padding-top: 15px;
@@ -319,35 +315,37 @@ p {
     font-size: 16px;
     font-weight: 800;
   }
-  .step1-container{
+  .step1-container {
     border-radius: 12px;
-    
   }
-  .messageContainer{
+  .messageContainer {
     padding: 30px;
-margin-top: 180px;
+    margin-top: 180px;
   }
-  .confirmation-message{
-    padding-bottom:60px;
+  .confirmation-message {
+    padding-bottom: 60px;
     line-height: 25px;
     width: 86%;
     margin: auto;
     text-align: center;
-   padding-top: 5px;
+    padding-top: 5px;
   }
-  .img-thank{
+  .img-thank {
     padding-top: 50px;
     width: 100px;
     height: 100px;
-
   }
-  .step-4-thanks{
+  .step-4-thanks {
     font-size: 1.5rem;
     font-weight: bolder;
     padding-left: 0px;
-
   }
-  .hidefooter{
+  .hidefooter {
     display: none;
+  }
+  .thank-message-container{
+   width: 95%;
+  margin: auto;
+  
   }
 }

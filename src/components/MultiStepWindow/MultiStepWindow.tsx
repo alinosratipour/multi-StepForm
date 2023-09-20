@@ -134,7 +134,7 @@ const MultiStepWindow = () => {
               </If>
               <If condition={confirmationClicked}>
                 {/* Display confirmation message */}
-                <div className="ali">
+                <div className="thank-message-container">
                   <img
                     className="img-thank"
                     src={ThanksIcon}
