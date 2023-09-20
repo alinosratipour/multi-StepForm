@@ -1,7 +1,10 @@
-import React, { ForwardRefRenderFunction, InputHTMLAttributes, forwardRef } from "react";
+import React, {
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+  forwardRef,
+} from "react";
 import classNames from "classnames";
 import "./TextField.scss";
-
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   label: string;
@@ -20,22 +23,22 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     onChange,
     error,
     errorMessagePosition = "default",
-    inputSize, // Rename the size prop in the function arguments
+    inputSize, 
     ...otherProps
   },
   ref
 ) => {
-  const id = `text-${Math.random().toString(36).substring(7)}`; // Generate a random ID
+  const id = `text-${Math.random().toString(36).substring(7)}`;
   const errorMessageClassName = classNames({
     "error-message-default": errorMessagePosition === "default" && error,
     "error-message-above": errorMessagePosition === "above" && error,
   });
 
-  const inputClassName = classNames('input', {
-    'input-border-error': error,
-    'input-small': inputSize === 'small', // Use inputSize here
-    'input-medium': inputSize === 'medium', // Use inputSize here
-    'input-large': inputSize === 'large', // Use inputSize here
+  const inputClassName = classNames("input", {
+    "input-border-error": error,
+    "input-small": inputSize === "small", 
+    "input-medium": inputSize === "medium", 
+    "input-large": inputSize === "large", 
   });
 
   return (
@@ -49,7 +52,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       <input
         {...otherProps}
         type="text"
-        id={id} 
+        id={id}
         name={name}
         placeholder={placeholder}
         ref={ref}
@@ -57,7 +60,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         className={inputClassName}
         autoComplete="on"
       />
-      
+
       {error && errorMessagePosition === "default" && (
         <span className={errorMessageClassName}>{error}</span>
       )}

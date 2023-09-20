@@ -25,7 +25,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   },
   ref
 ) => {
-  const id = `email-${Math.random().toString(36).substring(7)}`; // Generate a random ID
+  const id = `email-${Math.random().toString(36).substring(7)}`;
   const errorMessageClassName = classNames({
     "error-message": errorMessagePosition === "default" && error,
     "error-message-above": errorMessagePosition === "above" && error,
@@ -33,9 +33,9 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 
   const inputClassName = classNames('input', {
     'input-border-error': error,
-    'input-small': inputSize === 'small', // Use inputSize here
-    'input-medium': inputSize === 'medium', // Use inputSize here
-    'input-large': inputSize === 'large', // Use inputSize here
+    'input-small': inputSize === 'small', 
+    'input-medium': inputSize === 'medium', 
+    'input-large': inputSize === 'large', 
   });
 
   return (
@@ -49,13 +49,13 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       <input
         {...otherProps}
         type="email"
-        id={id} // Use generated ID here
+        id={id} 
         name={email}
         placeholder={placeholder}
         ref={ref}
         onChange={onChange}
         className={inputClassName}
-        autoComplete="off"
+        autoComplete="on"
       />
       
       {error && errorMessagePosition === "default" && (
