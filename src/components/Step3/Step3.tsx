@@ -84,7 +84,7 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
                   type="checkbox"
                   className="checkbox"
                   checked={isSelected}
-                 // onChange={() => toggleAddOnSelection(item)}
+                  onChange={() => toggleAddOnSelection(item)}
                 />
               </div>
             </PlanCard>

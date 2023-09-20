@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import React, { ForwardRefRenderFunction, InputHTMLAttributes, forwardRef } from "react";
 import classNames from "classnames";
 import "./EmailField.scss";
 
@@ -6,7 +6,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   email?: string;
   label: string;
   placeholder: string;
-  ref: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   errorMessagePosition?: "default" | "above";
@@ -26,6 +25,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   },
   ref
 ) => {
+  const id = `email-${Math.random().toString(36).substring(7)}`; // Generate a random ID
   const errorMessageClassName = classNames({
     "error-message": errorMessagePosition === "default" && error,
     "error-message-above": errorMessagePosition === "above" && error,
@@ -40,7 +40,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 
   return (
     <div className="text-field">
-      <label className="label">
+      <label htmlFor={id} className="label">
         {label}
         {error && errorMessagePosition === "above" && (
           <span className={errorMessageClassName}>{error}</span>
@@ -48,12 +48,16 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       </label>
       <input
         {...otherProps}
+        type="email"
+        id={id} // Use generated ID here
         name={email}
         placeholder={placeholder}
         ref={ref}
         onChange={onChange}
-        className={inputClassName} // Use the inputClassName here
+        className={inputClassName}
+        autoComplete="off"
       />
+      
       {error && errorMessagePosition === "default" && (
         <span className={errorMessageClassName}>{error}</span>
       )}
@@ -61,6 +65,6 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   );
 };
 
-const EmailField = React.forwardRef(Input);
+const EmailField = forwardRef(Input);
 
 export default EmailField;
