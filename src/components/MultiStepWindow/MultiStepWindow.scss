@@ -172,16 +172,29 @@ p {
 
 .confirmation-message {
   font-family: headerFont;
-  padding-top: 20px;
+  padding-top: 10px;
   color: hsl(229, 6%, 65%);
   font-weight: 900;
   font-size: 0.9rem;
-  line-height: 20px;
+  line-height: 25px;
+}
+.ali{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   margin-top: 50%;
+   margin-bottom: 50%;
+   width: 90%;
+   text-align: center;
+   //padding: 20px;
+ 
 }
 
 .step-4-thanks {
   padding-top: 20px;
-  font-size: 2rem;
+  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
 
 /* When the browser is at least 768px and above */

@@ -134,7 +134,7 @@ const MultiStepWindow = () => {
               </If>
               <If condition={confirmationClicked}>
                 {/* Display confirmation message */}
-                <div>
+                <div className="ali">
                   <img
                     className="img-thank"
                     src={ThanksIcon}
@@ -142,10 +142,10 @@ const MultiStepWindow = () => {
                     height="70px"
                     alt="message confirmation"
                   />
-                  <h2 className="step-4-thanks">Thank you</h2>
+                  <h2 className="step-4-thanks">Thank you!</h2>
                   <div className="confirmation-message">
                     Thanks for confirming your subscription!
-                    <br /> We hope you have fun using our platform.If you ever
+                    We hope you have fun using our platform.If you ever
                     need support,please feel free to email us at
                     support@loremgaming.com.
                   </div>
