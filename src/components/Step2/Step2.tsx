@@ -1,38 +1,11 @@
 import { ChangeEvent, useEffect, Dispatch, SetStateAction } from "react";
 import { If } from "tsx-control-statements/components";
 import Card from "../UILiberary/Card/Card";
-import Icon from "../../assets/images/icon-arcade.svg";
-import AdvancIcon from "../../assets/images/icon-advanced.svg";
-import IconPro from "../../assets/images/icon-pro.svg";
+import { plans } from "../../data/planData"; // Import the plans array
 import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
 import "../MultiStepWindow/MultiStepWindow.scss";
 import "./Step2.scss";
-const plans = [
-  {
-    name: "Arcade",
-    img: Icon,
-    price: {
-      monthly: 9,
-      yearly: 90,
-    },
-  },
-  {
-    name: "Advanced",
-    img: AdvancIcon,
-    price: {
-      monthly: 12,
-      yearly: 120,
-    },
-  },
-  {
-    name: "Pro",
-    img: IconPro,
-    price: {
-      monthly: 15,
-      yearly: 150,
-    },
-  },
-];
+
 
 interface Step2Props {
   selectedCard: number;
@@ -101,10 +74,12 @@ const Step2: React.FC<Step2Props> = ({
     setSelectedPlanName(selectedPlan.name);
   }, [selectedCard, toggleState, setPlanPrice, setSelectedPlanName]);
   return (
-    <div >
+    <div>
       <div className="step2-container">
         <h1 className="step2-header">Select your plan</h1>
-        <p className="step2-sub-header">You have the option of monthly or yearly billing.</p>
+        <p className="step2-sub-header">
+          You have the option of monthly or yearly billing.
+        </p>
         <div className="cardContaier">
           {plans.map((item, index) => {
             return (

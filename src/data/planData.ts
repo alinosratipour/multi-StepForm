@@ -1,6 +1,6 @@
-import Icon from "../../assets/images/icon-arcade.svg";
-import AdvancIcon from "../../assets/images/icon-advanced.svg";
-import IconPro from "../../assets/images/icon-pro.svg";
+import Icon from "../assets/images/icon-arcade.svg";
+import AdvancIcon from "../assets/images/icon-advanced.svg"
+import IconPro from "../assets/images/icon-pro.svg";
 export const plans = [
     {
       name: "Arcade",
