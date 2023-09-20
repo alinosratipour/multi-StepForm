@@ -315,11 +315,12 @@ p {
 margin-top: 180px;
   }
   .confirmation-message{
-    padding-bottom: 60px;
+    padding-bottom:60px;
     line-height: 25px;
     width: 86%;
     margin: auto;
-    text-align: center
+    text-align: center;
+   padding-top: 5px;
   }
   .img-thank{
     padding-top: 50px;
@@ -330,6 +331,8 @@ margin-top: 180px;
   .step-4-thanks{
     font-size: 1.5rem;
     font-weight: bolder;
+    padding-left: 0px;
+
   }
   .hidefooter{
     display: none;
