@@ -13,22 +13,6 @@ import Step3 from "./Step3";
 import Step4 from "./Step4";
 import ThanksIcon from "../../assets/images/icon-thank-you.svg";
 
-// ### Primary
-
-// - Marine blue: hsl(213, 96%, 18%)
-// - Purplish blue: hsl(243, 100%, 62%)
-// - Pastel blue: hsl(228, 100%, 84%)
-// - Light blue: hsl(206, 94%, 87%)
-// - Strawberry red: hsl(354, 84%, 57%)
-
-// ### Neutral
-
-// - Cool gray: hsl(231, 11%, 63%)
-// - Light gray: hsl(229, 24%, 87%)
-// - Magnolia: hsl(217, 100%, 97%)
-// - Alabaster: hsl(231, 100%, 99%)
-// - White: hsl(0, 0%, 100%)
-
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
   const [currentStep, setCurrentStep] = useState(1);
@@ -53,7 +37,6 @@ const MultiStepWindow = () => {
     }
   };
 
-  
   const jumpToStep2 = () => {
     setCurrentStep(2);
   };
@@ -104,14 +87,14 @@ const MultiStepWindow = () => {
   return (
     <div className="container">
       <div className="form-content">
-         <div className="form-left-side">
+        <div className="form-left-side">
           <StepNavigation
             stepNumberArray={stepText}
             currentStep={currentStep}
           ></StepNavigation>
-        </div> 
+        </div>
         <div className="form-right-side">
-          <div className="form-header">
+          <div className="form-container">
             <div className="form-text-fields-container">
               <If condition={currentStep === 1}>
                 <Step1
@@ -151,8 +134,9 @@ const MultiStepWindow = () => {
               </If>
               <If condition={confirmationClicked}>
                 {/* Display confirmation message */}
-                <div className="messageContainer">
+                <div>
                   <img
+                    className="img-thank"
                     src={ThanksIcon}
                     width="70px"
                     height="70px"
@@ -160,16 +144,19 @@ const MultiStepWindow = () => {
                   />
                   <h2 className="step-4-thanks">Thank you</h2>
                   <div className="confirmation-message">
-                    Thanks for confirming your subscription! We hope you have<br/>
-                    fun using our platform. If you ever need support, please
-                    feel free to email us at support@loremgaming.com.
+                    Thanks for confirming your subscription!
+                    <br /> We hope you have fun using our platform.If you ever
+                    need support,please feel free to email us at
+                    support@loremgaming.com.
                   </div>
                 </div>
               </If>
             </div>
           </div>
 
-          <div className="button-wrapper">
+          <div
+            className={!confirmationClicked ? "button-wrapper" : "hidefooter"}
+          >
             <If condition={!confirmationClicked}>
               <a
                 onClick={goBack}
@@ -198,14 +185,9 @@ const MultiStepWindow = () => {
                 Confirm
               </CustomButton>
             </If>
-          </div> 
+          </div>
         </div>
-
-        
       </div>
-
-
-
     </div>
   );
 };

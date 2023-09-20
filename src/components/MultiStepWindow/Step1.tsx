@@ -14,7 +14,7 @@ interface Step1Props {
 
 const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
-    <div>
+    <div className="step1-container">
       <form>
         <div>
           <h1 className="step1-header">Personal Info</h1>

@@ -51,3 +51,14 @@ input {
 .input-large{
   width: 90%;
 }
+
+@media screen and (max-width: 768px) {
+  input {
+    padding: 12px;
+    margin-top: 1px;
+ 
+  }
+  .label{
+    font-size: 0.8rem;
+  }
+}

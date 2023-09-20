@@ -203,7 +203,7 @@ p {
     min-height: 400px;
     height: 400px;
   }
-  .form-header {
+  .form-container {
     padding-top: 60px;
   }
   .form-text-fields-container {
@@ -229,6 +229,7 @@ p {
   .form-right-side {
     text-align: center;
     background-color: hsl(217, 100%, 97%);
+ 
   }
   .button-wrapper {
     padding-top: 15px;
@@ -282,6 +283,8 @@ p {
   .step1-subheader {
     padding-left: 20px;
     text-align: left;
+    width: 80%;
+    line-height: 25px;
   }
   .toggleContainer {
     width: 90%;
@@ -296,12 +299,39 @@ p {
 
   .add-on-container {
     padding-top: 30px;
-
     padding-left: 10px;
     padding-right: 10px;
   }
   .add-on-name {
     font-size: 16px;
     font-weight: 800;
+  }
+  .step1-container{
+    border-radius: 12px;
+    
+  }
+  .messageContainer{
+    padding: 30px;
+margin-top: 180px;
+  }
+  .confirmation-message{
+    padding-bottom: 60px;
+    line-height: 25px;
+    width: 86%;
+    margin: auto;
+    text-align: center
+  }
+  .img-thank{
+    padding-top: 50px;
+    width: 100px;
+    height: 100px;
+
+  }
+  .step-4-thanks{
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  .hidefooter{
+    display: none;
   }
 }

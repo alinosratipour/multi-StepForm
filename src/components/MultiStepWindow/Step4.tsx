@@ -28,7 +28,7 @@ const Step4: React.FC<Step4Props> = ({
   return (
     <div className="summary">
       <h1 className="step4-header">Finishing up</h1>
-      <p className="description">
+      <p className="step4-subheader">
         Double-check everything looks OK before confirming.
       </p>
       <div className="selected-addons">
@@ -39,15 +39,15 @@ const Step4: React.FC<Step4Props> = ({
                 {selectedPlanName} (
                 {planType === "monthly" ? "Monthly" : "Yearly"})
               </div>
-              <div >
-                {/* Display the selected plan price */}${selectedPlanPrice}/
+              <div className="plan-price">
+               ${selectedPlanPrice}/
                 {planType === "monthly" ? "mo" : "yr"}
               </div>
             </div>
             <a className="link" onClick={onJumpToStep2}>
               Change
             </a>
-
+            <hr className="line"></hr>
             {/* Display selected add-ons */}
             <div className="item-name">
               <div className="addons-list">
@@ -70,9 +70,13 @@ const Step4: React.FC<Step4Props> = ({
         </div>
       </div>
       {/* Display the total price below */}
-      <div className="total-price">
-        <span className="total-text">Total ( {planType === "monthly" ? "per month" : "per year"})</span>
-        <span>+${totalSelectedPrice}/{planType === "monthly" ? "mo" : "yr"}</span>
+      <div className="price-container">
+        <span className="total-text">
+          Total ( {planType === "monthly" ? "per month" : "per year"})
+        </span>
+        <span className="total">
+          +${totalSelectedPrice}/{planType === "monthly" ? "mo" : "yr"}
+        </span>
       </div>
     </div>
   );
