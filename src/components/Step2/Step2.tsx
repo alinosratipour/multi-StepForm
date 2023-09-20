@@ -5,7 +5,8 @@ import Icon from "../../assets/images/icon-arcade.svg";
 import AdvancIcon from "../../assets/images/icon-advanced.svg";
 import IconPro from "../../assets/images/icon-pro.svg";
 import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
-import "./MultiStepWindow.scss";
+import "../MultiStepWindow/MultiStepWindow.scss";
+import "./Step2.scss";
 const plans = [
   {
     name: "Arcade",
@@ -101,7 +102,7 @@ const Step2: React.FC<Step2Props> = ({
   }, [selectedCard, toggleState, setPlanPrice, setSelectedPlanName]);
   return (
     <div >
-      <div className="step2-title">
+      <div className="step2-container">
         <h1 className="step2-header">Select your plan</h1>
         <p className="step2-sub-header">You have the option of monthly or yearly billing.</p>
         <div className="cardContaier">

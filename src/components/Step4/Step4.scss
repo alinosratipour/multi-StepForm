@@ -12,7 +12,10 @@
   padding-bottom: 30px;
   font-weight: 100;
 }
-
+.step4-header {
+  font-size: 1.9rem;
+  font-weight: bolder;
+}
 .link {
   font-family: headerFont;
   color: #aaabaf;
@@ -58,7 +61,96 @@
   font-size: 14px;
 }
 
+.confirmation-message {
+  font-family: headerFont;
+  padding-top: 10px;
+  color: hsl(229, 6%, 65%);
+  font-weight: 900;
+  font-size: 0.9rem;
+  line-height: 25px;
+}
+.thank-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  width: 90%;
+  text-align: center;
+}
+
+.step-4-thanks {
+  padding-top: 20px;
+  font-size: 1.9rem;
+  font-size: 1.6rem;
+}
+.summary {
+  margin-top: 40px;
+}
 @media screen and (max-width: 768px) {
+  .line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #ccc;
+    padding: 0;
+  }
+  .step4-header {
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    padding-left: 25px;
+    padding-top: 30px;
+  }
+  .step4-subheader {
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 25px;
+    font-weight: 900;
+    line-height: 25px;
+  }
+  .total-text {
+    padding-left: 31px;
+  }
+  .total {
+    font-size: 1rem;
+    padding-right: 20px;
+    font-weight: bold;
+  }
+
+  .plan-price {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .step-4-thanks {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding-left: 0px;
+  }
+  .img-thank {
+    padding-top: 50px;
+    width: 100px;
+    height: 100px;
+  }
+  .thank-message-container {
+    width: 95%;
+    margin: auto;
+  }
+
+  .messageContainer {
+    padding: 30px;
+    margin-top: 180px;
+  }
+  .confirmation-message {
+    padding-bottom: 60px;
+    line-height: 25px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding-top: 5px;
+  }
+
   .selected-addons {
     border-bottom: none;
     width: 90%;
@@ -80,44 +172,8 @@
   .addons-list {
     gap: 15px;
   }
-  .step4-header {
-    text-align: left;
-    padding-left: 20px;
-    padding-top: 40px;
-    font-size: 1.4rem;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .line {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-top: 1px solid #ccc;
-    padding: 0;
-  }
-  .step4-header {
-    text-align: left;
-    font-size: 1.4rem;
-    font-weight: bolder;
-  }
-  .step4-subheader {
-    font-size: 1rem;
-    text-align: left;
-    padding-left: 20px;
-    font-weight: 900;
-    line-height: 25px;
-  }
-  .total-text {
-    padding-left: 31px;
-  }
-  .total {
-    font-size: 1rem;
-    padding-right: 20px;
-    font-weight: bold;
-  }
-
-  .plan-price {
-    font-size: 0.9rem;
-    font-weight: bold;
+  .summary {
+    margin-top: 0px;
   }
 }

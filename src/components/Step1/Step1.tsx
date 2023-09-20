@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "../UILiberary/Text-Field/TextField";
 import EmailField from "../UILiberary/Email-Field/EmailField";
+import  "./Step1.scss";
 
 interface Step1Props {
   values: { [key: string]: string };
