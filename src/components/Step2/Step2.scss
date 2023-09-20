@@ -1,0 +1,25 @@
+.step2-container {
+ margin-top: 60px;
+ 
+}
+
+@media screen and (max-width: 768px) {
+  .step2-container {
+    font-weight: 900;
+    text-align: left;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    margin-top: 0px;
+   
+  }
+  .step2-header{
+    height: 0px;
+  }
+  .step2-sub-header{
+    width: 90%;
+  }
+}
+
+
+
+

@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "../UILiberary/Text-Field/TextField";
 import EmailField from "../UILiberary/Email-Field/EmailField";
+import  "./Step1.scss";
 
 interface Step1Props {
   values: { [key: string]: string };
@@ -14,11 +15,11 @@ interface Step1Props {
 
 const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
-    <div>
+    <div className="step1-container">
       <form>
-        <div className="title">
-          <h1>Personal Info</h1>
-          <p>Please provide your name, email address, and phone number.</p>
+        <div>
+          <h1 className="step1-header">Personal Info</h1>
+          <p className="step1-subheader">Please provide your name, email address, and phone number.</p>
         </div>
 
         <TextField
@@ -29,6 +30,9 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.name}
           error={errors.name}
           errorMessagePosition="above"
+          inputSize="large"
+          
+         
         />
         <EmailField
           label="Email Address"
@@ -38,6 +42,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.email}
           error={errors.email}
           errorMessagePosition="above"
+          inputSize="large"
         />
         <TextField
           label="Phone Number"
@@ -47,6 +52,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           value={values.phone}
           error={errors.phone}
           errorMessagePosition="above"
+          inputSize="large"
         />
       </form>
     </div>

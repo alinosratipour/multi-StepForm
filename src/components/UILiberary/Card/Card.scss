@@ -59,3 +59,66 @@
 .bg--color {
   background-color: hsl(231, 100%, 99%);
 }
+
+@media screen and (max-width: 768px) {
+  .cardWrapper {
+    border: 1.6px solid hsl(229, 24%, 87%);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    margin-top: 30px;
+    width: 90%;
+    min-height: 30px;
+    margin: auto;
+  }
+
+  .cardContaier {
+    display: flex;
+    flex-direction: column;
+    //gap: 10px;
+   
+   // margin:auto;
+  }
+
+  .titleWrapper {
+    
+    // flex-direction: column;
+    // gap: 5px;
+ 
+  
+  
+  }
+  
+  .CardTitle {
+    font-weight: 900;
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+.image {
+display: flex;
+justify-content: center;
+align-items:center;
+  height: 60px;
+  width: 60px;
+}
+.subtitle {
+ 
+  font-size: 13px;
+  
+}
+.step2-sub-header{
+ 
+  padding: 20px;
+
+}
+
+
+.step2-header{
+  font-size:1.4rem ;
+  padding: 20px;
+}
+  }
+

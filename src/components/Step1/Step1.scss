@@ -1,0 +1,33 @@
+.step1-header {
+  text-align: left;
+  padding-top: 30px;
+  font-size: 1.7rem;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+.step1-subheader {
+  padding-left: 20px;
+  text-align: left;
+ 
+}
+@media screen and (max-width: 768px) {
+  .step1-container {
+    border-radius: 12px;
+    
+  }
+
+  .step1-header {
+    text-align: left;
+    padding-top: 20px;
+    font-size: 1.4rem;
+    padding-left: 20px;
+    font-weight: bolder;
+  }
+
+  .step1-subheader {
+    padding-left: 20px;
+    text-align: left;
+    width: 80%;
+    line-height: 25px;
+  }
+}

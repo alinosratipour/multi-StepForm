@@ -4,35 +4,22 @@ import "./MultiStepWindow.scss";
 import "../stepper/steper.scss";
 import StepNavigation from "../stepper/StepNavigation";
 import { If } from "tsx-control-statements/components";
-import Step1 from "./Step1";
-import Step2 from "./Step2";
+import Step1 from "../Step1/Step1";
+import Step2 from "../Step2/Step2";
 import { validateInput } from "../../utils/validationUtils";
 import { validationSchema } from "../../utils/validationSchema";
 import { ZodError } from "zod";
-import Setep3 from "./Setep3";
-import Step4 from "./Step4";
-
-// ### Primary
-
-// - Marine blue: hsl(213, 96%, 18%)
-// - Purplish blue: hsl(243, 100%, 62%)
-// - Pastel blue: hsl(228, 100%, 84%)
-// - Light blue: hsl(206, 94%, 87%)
-// - Strawberry red: hsl(354, 84%, 57%)
-
-// ### Neutral
-
-// - Cool gray: hsl(231, 11%, 63%)
-// - Light gray: hsl(229, 24%, 87%)
-// - Magnolia: hsl(217, 100%, 97%)
-// - Alabaster: hsl(231, 100%, 99%)
-// - White: hsl(0, 0%, 100%)
+import Step3 from "../Step3/Step3";
+import Step4 from "../Step4/Step4";
+import ThanksIcon from "../../assets/images/icon-thank-you.svg";
 
 const MultiStepWindow = () => {
   const ref = React.useRef<HTMLButtonElement>(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCard, setSelectedCard] = useState(0);
   const [planType, setPlanType] = useState("monthly");
+  const [selectedPlanName, setSelectedPlanName] = useState(""); // Add this state
+  const [confirmationClicked, setConfirmationClicked] = useState(false);
 
   const stepText = {
     "STEP 1": "YOUR INFO",
@@ -50,6 +37,9 @@ const MultiStepWindow = () => {
     }
   };
 
+  const jumpToStep2 = () => {
+    setCurrentStep(2);
+  };
   const [values, setValues] = useState<{ [key: string]: string }>({
     name: "",
     email: "",
@@ -91,6 +81,8 @@ const MultiStepWindow = () => {
       }
     }
   };
+  // State to store the selected plan price from Step 2
+  const [selectedPlanPrice, setSelectedPlanPrice] = useState<number>(0);
 
   return (
     <div className="container">
@@ -102,7 +94,7 @@ const MultiStepWindow = () => {
           ></StepNavigation>
         </div>
         <div className="form-right-side">
-          <div className="form-header">
+          <div className="form-container">
             <div className="form-text-fields-container">
               <If condition={currentStep === 1}>
                 <Step1
@@ -120,33 +112,79 @@ const MultiStepWindow = () => {
                   onPlanTypeChange={handlePlanTypeChange}
                   toggleState={toggleState}
                   setToggleState={setToggleState}
+                  setPlanPrice={setSelectedPlanPrice} // Pass the state setter to Step 2
+                  setSelectedPlanName={setSelectedPlanName} // Pass the state setter to Step 2
                 />
               </If>
+
               <If condition={currentStep === 3}>
-                <Setep3
+                <Step3
                   planType={planType}
                   toggleState={toggleState}
                   selectedCard={selectedCard}
                 />{" "}
               </If>
-              <If condition={currentStep === 4}>
-                <Step4 />
+              <If condition={currentStep === 4 && !confirmationClicked}>
+                <Step4
+                  selectedPlanPrice={selectedPlanPrice}
+                  planType={planType}
+                  selectedPlanName={selectedPlanName} // Pass the selected plan name to Step 4
+                  onJumpToStep2={jumpToStep2}
+                />
+              </If>
+              <If condition={confirmationClicked}>
+                {/* Display confirmation message */}
+                <div className="thank-message-container">
+                  <img
+                    className="img-thank"
+                    src={ThanksIcon}
+                    width="70px"
+                    height="70px"
+                    alt="message confirmation"
+                  />
+                  <h2 className="step-4-thanks">Thank you!</h2>
+                  <div className="confirmation-message">
+                    Thanks for confirming your subscription!
+                    We hope you have fun using our platform.If you ever
+                    need support,please feel free to email us at
+                    support@loremgaming.com.
+                  </div>
+                </div>
               </If>
             </div>
           </div>
 
-          <div className="button-wrapper">
-            <a onClick={goBack} className={currentStep <= 1 ? "hide" : "back"}>
-              Go Back
-            </a>
-            <CustomButton
-              colorscheme="primary"
-              size="md"
-              ref={ref}
-              onClick={moveToNextStep}
-            >
-              Next Step
-            </CustomButton>
+          <div
+            className={!confirmationClicked ? "button-wrapper" : "hidefooter"}
+          >
+            <If condition={!confirmationClicked}>
+              <a
+                onClick={goBack}
+                className={currentStep <= 1 ? "hide" : "back"}
+              >
+                Go Back
+              </a>
+            </If>
+            <If condition={currentStep !== 4 && !confirmationClicked}>
+              <CustomButton
+                colorscheme="primary"
+                size="md"
+                ref={ref}
+                onClick={moveToNextStep}
+              >
+                Next Step
+              </CustomButton>
+            </If>
+            <If condition={currentStep === 4 && !confirmationClicked}>
+              <CustomButton
+                colorscheme="secondery"
+                size="md"
+                ref={ref}
+                onClick={() => setConfirmationClicked(true)}
+              >
+                Confirm
+              </CustomButton>
+            </If>
           </div>
         </div>
       </div>

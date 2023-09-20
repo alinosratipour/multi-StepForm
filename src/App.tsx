@@ -1,11 +1,17 @@
 import "./App.scss";
 import MultiStepWindow from "./components/MultiStepWindow/MultiStepWindow";
+import { AddonsProvider } from "./context/AddonsContext";
 
 function App() {
   return (
-    <div className="app">
-     <MultiStepWindow/>
-    </div>
+    
+      <AddonsProvider>
+        <div className="app">
+          <MultiStepWindow />
+          </div> 
+      </AddonsProvider>
+    
+   
   );
 }
 

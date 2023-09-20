@@ -1,37 +1,11 @@
 import { ChangeEvent, useEffect, Dispatch, SetStateAction } from "react";
 import { If } from "tsx-control-statements/components";
 import Card from "../UILiberary/Card/Card";
-import Icon from "../../assets/images/icon-arcade.svg";
-import AdvancIcon from "../../assets/images/icon-advanced.svg";
-import IconPro from "../../assets/images/icon-pro.svg";
+import { plans } from "../../data/planData"; // Import the plans array
 import ToggleSwitch from "../UILiberary/ToggleSwitch/ToggleSwitch";
-import "./MultiStepWindow.scss";
-const plans = [
-  {
-    name: "Arcade",
-    img: Icon,
-    price: {
-      monthly: 9,
-      yearly: 90,
-    },
-  },
-  {
-    name: "Advanced",
-    img: AdvancIcon,
-    price: {
-      monthly: 12,
-      yearly: 120,
-    },
-  },
-  {
-    name: "Pro",
-    img: IconPro,
-    price: {
-      monthly: 15,
-      yearly: 150,
-    },
-  },
-];
+import "../MultiStepWindow/MultiStepWindow.scss";
+import "./Step2.scss";
+
 
 interface Step2Props {
   selectedCard: number;
@@ -40,6 +14,8 @@ interface Step2Props {
   onPlanTypeChange: (e: ChangeEvent<HTMLInputElement>) => void;
   toggleState: boolean;
   setToggleState: Dispatch<SetStateAction<boolean>>;
+  setPlanPrice: Dispatch<SetStateAction<number>>;
+  setSelectedPlanName: Dispatch<SetStateAction<string>>;
 }
 
 const Step2: React.FC<Step2Props> = ({
@@ -48,6 +24,8 @@ const Step2: React.FC<Step2Props> = ({
   setToggleState,
   setSelectedCard,
   onPlanTypeChange,
+  setPlanPrice, // Receive the selected plan price as a prop
+  setSelectedPlanName,
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setToggleState(e.target.checked);
@@ -57,6 +35,11 @@ const Step2: React.FC<Step2Props> = ({
   const handleCardClick = (cardIndex: number) => {
     setSelectedCard(cardIndex);
   };
+
+  // Get the selected plan price
+  const selectedPlan = plans[selectedCard];
+  toggleState ? selectedPlan.price.yearly : selectedPlan.price.monthly;
+
   useEffect(() => {
     localStorage.setItem("selectedCard", String(selectedCard));
   }, [selectedCard]);
@@ -78,11 +61,25 @@ const Step2: React.FC<Step2Props> = ({
   useEffect(() => {
     localStorage.setItem("toggleState", String(toggleState));
   }, [toggleState]);
+
+  useEffect(() => {
+    // Calculate the selected plan price based on the plan type (monthly or yearly)
+    const selectedPlan = plans[selectedCard];
+    const selectedPlanPrice = toggleState
+      ? selectedPlan.price.yearly
+      : selectedPlan.price.monthly;
+
+    // Set the selected plan's price in the state
+    setPlanPrice(selectedPlanPrice);
+    setSelectedPlanName(selectedPlan.name);
+  }, [selectedCard, toggleState, setPlanPrice, setSelectedPlanName]);
   return (
     <div>
-      <div className="title">
-        <h1>Select your plan</h1>
-        <p>You have the option of monthly or yearly billing.</p>
+      <div className="step2-container">
+        <h1 className="step2-header">Select your plan</h1>
+        <p className="step2-sub-header">
+          You have the option of monthly or yearly billing.
+        </p>
         <div className="cardContaier">
           {plans.map((item, index) => {
             return (
