@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Front End Mentor multi-stepForm
-=======
 
 # Front End Mentor Multi Step From 
 
@@ -19,12 +16,4 @@ https://ali-multi-step-form.netlify.app/
 
 
 
-## Deployment
 
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
->>>>>>> cd82536 (update readme file)
