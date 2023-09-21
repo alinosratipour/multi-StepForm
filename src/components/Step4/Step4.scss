@@ -1,8 +1,8 @@
 .selected-addons {
   background-color: hsl(231, 100%, 99%);
   padding: 20px;
-  border-bottom: 1px solid gray;
   padding-bottom: 30px;
+  border-radius: 10px;
 }
 
 .planPrice {
@@ -25,8 +25,11 @@
   height: 0px;
   font-size: 16px;
   margin-top: 8px;
+  
 }
-
+.line{
+ margin-top: 10px;
+}
 .addons-list {
   display: flex;
   flex-direction: column;
