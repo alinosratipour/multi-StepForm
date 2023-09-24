@@ -4,9 +4,9 @@ import {
   RenderResult,
   fireEvent,
   waitFor,
-  cleanup,
 } from "@testing-library/react";
 import Step1 from "./Step1";
+import { validationSchema } from "../../utils/validationSchema";
 
 describe("Step1 component", () => {
   let renderResult: RenderResult;
@@ -14,7 +14,8 @@ describe("Step1 component", () => {
   beforeEach(() => {
     renderResult = render(<Step1 values={{}} errors={{}} />);
   });
-  afterEach(cleanup);
+
+ 
 
   it("should render the component with the header", () => {
     const { getByText } = renderResult;
@@ -88,7 +89,6 @@ describe("Step1 component", () => {
     });
   });
 
-
   it("should handle input changes for the phone field", async () => {
     const initialValues = { name: "", email: "", phone: "" };
     const initialErrors = { name: "", email: "", phone: "" };
@@ -112,6 +112,115 @@ describe("Step1 component", () => {
       expect(nameInput.value).toBe("1234567");
     });
   });
+});
 
-  
+
+describe("validating form", () => {
+  it("should fail validation for an empty Name", () => {
+    const initialValues = {
+      name: "",
+      email: "john@example.com",
+      phone: "6557788",
+    };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (!result.success) {
+      // Validation failed
+      expect(result.error.issues[0].message).toContain(
+        "This field is required"
+      );
+    } else {
+      // Validation succeeded (fail the test)
+      throw new Error("Validation should have failed.");
+    }
+  });
+
+  it("should fail validation for an empty email address", () => {
+    const initialValues = { name: "", email: "", phone: "" };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (!result.success) {
+      // Validation failed
+      expect(result.error.issues[0].message).toContain(
+        "This field is required"
+      );
+    } else {
+      // Validation succeeded (fail the test)
+      throw new Error("Validation should have failed.");
+    }
+  });
+
+  it("should fail validation for an invalid email format", () => {
+    const initialValues = {
+      name: "John Doe",
+      email: "invalid-email",
+      phone: "",
+    };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (!result.success) {
+      // Validation failed
+      expect(result.error.issues[0].message).toContain(
+        "Invalid email format"
+      );
+    } else {
+      // Validation succeeded (fail the test)
+      throw new Error("Validation should have failed.");
+    }
+  });
+
+  it("should validate a valid phone number", () => {
+    const initialValues = {
+      name: "John Doe",
+      email: "john@example.com",
+      phone: "1234567890",
+    };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (result.success) {
+      // Validation succeeded
+      expect(result.data.phone).toBe("1234567890");
+    } else {
+      // Validation failed (fail the test)
+      throw new Error("Validation should have succeeded.");
+    }
+  });
+
+  it("should fail validation for an empty phone number", () => {
+    const initialValues = {
+      name: "John Doe",
+      email: "john@example.com",
+      phone: "",
+    };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (!result.success) {
+      // Validation failed
+      expect(result.error.issues[0].message).toContain(
+        "This field is required"
+      );
+    } else {
+      // Validation succeeded (fail the test)
+      throw new Error("Validation should have failed.");
+    }
+  });
+
+  it("should fail validation for an invalid phone number", () => {
+    const initialValues = {
+      name: "John Doe",
+      email: "john@example.com",
+      phone: "invalid-phone",
+    };
+    const result = validationSchema.safeParse(initialValues);
+
+    if (!result.success) {
+      // Validation failed
+      expect(result.error.issues[0].message).toContain(
+        "Invalid phone number"
+      );
+    } else {
+      // Validation succeeded (fail the test)
+      throw new Error("Validation should have failed.");
+    }
+  });
 });
