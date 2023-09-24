@@ -1,4 +1,9 @@
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  waitFor,
+  RenderResult,
+} from "@testing-library/react";
 import MultiStepWindow from "./MultiStepWindow";
 import "@testing-library/jest-dom";
 
@@ -9,48 +14,64 @@ jest.mock("../../context/AddonsContext", () => ({
   })),
 }));
 
-describe("MultiStepWindow component", () => {
-  it("renders Step1 component", () => {
-    const { getByText } = render(<MultiStepWindow />);
+describe("verify steps", () => {
+  let renderResult: RenderResult; // Specify the type here
+  beforeEach(() => {
+    renderResult = render(<MultiStepWindow />);
+  });
+
+  it("should start at the initial step", () => {
+    const { getByText } = renderResult;
     expect(getByText("YOUR INFO")).toBeInTheDocument();
   });
 
-  it("renders Step2 component", () => {
-    const { getByText } = render(<MultiStepWindow />);
+  it("should go to step 2 when Next Step button is clicked", async () => {
+    const { getByTestId, getByText } = renderResult;
+    // Check if the initial step is 1
+    expect(getByText("YOUR INFO")).toBeInTheDocument();
+    // Find and click the Next Step button
+    const nextStepButton = getByTestId("next-button");
+    fireEvent.click(nextStepButton);
+
+    // Wait for the component to update
+    await waitFor(() => {
+      expect(getByText("SELECTED PLAN")).toBeInTheDocument(); // Check if the current step is now 2
+    });
+  });
+
+  it("should go to step 3when Next Step button is clicked", async () => {
+    const { getByTestId, getByText } = renderResult;
     expect(getByText("SELECTED PLAN")).toBeInTheDocument();
+    const nextStepButton = getByTestId("next-button");
+    fireEvent.click(nextStepButton);
+
+    await waitFor(() => {
+      expect(getByText("ADD-ONS")).toBeInTheDocument();
+    });
   });
 
-  it("renders Step3 component", () => {
-    const { getByText } = render(<MultiStepWindow />);
+  it("should go to step 4 when Next Step button is clicked", async () => {
+    const { getByTestId, getByText } = renderResult;
     expect(getByText("ADD-ONS")).toBeInTheDocument();
+    const nextStepButton = getByTestId("next-button");
+    fireEvent.click(nextStepButton);
+
+    await waitFor(() => {
+      expect(getByText("SUMMARY")).toBeInTheDocument();
+    });
   });
 
-  it("renders Step4 component", () => {
-    const { getByText } = render(<MultiStepWindow />);
-    expect(getByText("SUMMARY")).toBeInTheDocument();
-  });
+  it("renders confirmation message when Confirm button is clicked", async () => {
+    const { getByTestId, getByText } = renderResult;
 
-  it("renders confirmation message", () => {
-    const { getByText } = render(<MultiStepWindow />);
-    expect(getByText("Thank you!")).toBeInTheDocument();
-  });
+    // Find the Confirm button by its id
+    const confirmButton = getByTestId("confirm-button");
 
-  describe("verify steps", () => {
-    it("should go to step 2 when Next Step button is clicked", async () => {
-      const { getByText } = render(<MultiStepWindow />);
+    // Simulate a click on the Confirm button
+    fireEvent.click(confirmButton);
 
-      // Check if the initial step is 1
-      expect(getByText("YOUR INFO")).toBeInTheDocument();
-
-      // Find and click the Next Step button
-      const nextStepButton = getByText("Next Step");
-      fireEvent.click(nextStepButton);
-
-      // Wait for the component to update (you can adjust the wait time as needed)
-      await waitFor(() => {
-        // Check if the current step is now 2
-        expect(getByText("SELECTED PLAN")).toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(getByText("Thank you!")).toBeInTheDocument();
     });
   });
 });

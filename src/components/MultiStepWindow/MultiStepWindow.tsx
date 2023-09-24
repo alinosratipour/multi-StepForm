@@ -175,6 +175,7 @@ const MultiStepWindow = forwardRef(
                   size="md"
                   ref={ref}
                   onClick={moveToNextStep}
+                  data-testid="next-button" 
                 >
                   Next Step
                 </CustomButton>
@@ -185,6 +186,7 @@ const MultiStepWindow = forwardRef(
                   size="md"
                   ref={ref}
                   onClick={() => setConfirmationClicked(true)}
+                  data-testid="confirm-button" 
                 >
                   Confirm
                 </CustomButton>
