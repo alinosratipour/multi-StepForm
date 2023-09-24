@@ -65,11 +65,11 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
-          const isSelected = selectedAddOns.some(
+          const isSelected = selectedAddOns && selectedAddOns.some(
             (addon) => addon.name === item.name
           );
           const isHighlighted = isSelected;
-
+//const isSelected = selectedAddOns && selectedAddOns.some(/
           return (
             <PlanCard
               key={item.name}

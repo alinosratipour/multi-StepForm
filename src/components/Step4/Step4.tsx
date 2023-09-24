@@ -18,12 +18,12 @@ const Step4: React.FC<Step4Props> = ({
   const { selectedAddOns } = useAddonsContext();
 
   // Calculate the total price by summing up selected add-ons and selected plan price
-  const totalSelectedPrice = selectedAddOns.reduce((total, addon) => {
+  const totalSelectedPrice =selectedAddOns ? selectedAddOns.reduce((total, addon) => {
     return (
       total +
       (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
     );
-  }, selectedPlanPrice);
+  }, selectedPlanPrice): 0;
 
   return (
     <div className="summary">
@@ -51,7 +51,7 @@ const Step4: React.FC<Step4Props> = ({
             {/* Display selected add-ons */}
             <div className="item-name">
               <div className="addons-list">
-                {selectedAddOns.map((addon) => (
+                {selectedAddOns && selectedAddOns.map((addon) => (
                   <div key={addon.name} className="addonContent">
                     <span>{addon.name}</span>
                     <span>
