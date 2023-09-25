@@ -21,10 +21,9 @@ describe("Step2 Component", () => {
   });
 
   it("should render the component with the header", () => {
-    const { getByText } = render( <Step2 {...props}/>)
+    const { getByText } = render(<Step2 {...props} />);
     expect(getByText("Select your plan")).toBeInTheDocument();
   });
-
 
   it("should render the ToggleSwitch component", () => {
     // Render the Step2 component with the mock props
@@ -36,7 +35,6 @@ describe("Step2 Component", () => {
     // Assert that the ToggleSwitch is present
     expect(toggleSwitch).toBeInTheDocument();
   });
-
 
   it("should toggle to Yearly option when ToggleSwitch is clicked", () => {
     // Render the Step2 component with the mock props
@@ -56,7 +54,6 @@ describe("Step2 Component", () => {
     expect(yearlyOption).toHaveClass("yearly-option");
   });
 
-  
   it("should initially display Monthly option and grayed out Yearly option", () => {
     // Render the Step2 component with the mock props
     render(<Step2 {...props} />);
@@ -72,12 +69,10 @@ describe("Step2 Component", () => {
     expect(yearlyOption).toHaveClass("yearly-option");
   });
 
-
-
   it("should render Cards with titles and subtitles", () => {
     // Render the Step2 component with the mock props
     render(<Step2 {...props} />);
-  
+
     // Use getByText to check if the Card titles and subtitles are in the document
     plans.forEach((plan) => {
       const cardTitle = screen.getByText(plan.name);
@@ -86,11 +81,10 @@ describe("Step2 Component", () => {
           ? `$${plan.price.monthly}/mo`
           : `$${plan.price.yearly}/yr`
       );
-  
+
       // Assert that both card title and subtitle are present for each plan
       expect(cardTitle).toBeInTheDocument();
       expect(cardSubtitle).toBeInTheDocument();
     });
-});
-
+  });
 });
