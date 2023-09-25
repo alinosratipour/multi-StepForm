@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Step2, { Step2Props } from "./Step2"; // Make sure to import the Step2Props interface
+import { plans } from "../../data/planData"; // Import the plans variable
 
 describe("Step2 Component", () => {
   // Mock the necessary props using a beforeEach block
@@ -18,6 +19,12 @@ describe("Step2 Component", () => {
       setSelectedPlanName: jest.fn(),
     };
   });
+
+  it("should render the component with the header", () => {
+    const { getByText } = render( <Step2 {...props}/>)
+    expect(getByText("Select your plan")).toBeInTheDocument();
+  });
+
 
   it("should render the ToggleSwitch component", () => {
     // Render the Step2 component with the mock props
@@ -64,5 +71,26 @@ describe("Step2 Component", () => {
     expect(monthlyOption).toHaveClass("monthly-option");
     expect(yearlyOption).toHaveClass("yearly-option");
   });
+
+
+
+  it("should render Cards with titles and subtitles", () => {
+    // Render the Step2 component with the mock props
+    render(<Step2 {...props} />);
+  
+    // Use getByText to check if the Card titles and subtitles are in the document
+    plans.forEach((plan) => {
+      const cardTitle = screen.getByText(plan.name);
+      const cardSubtitle = screen.getByText(
+        !props.toggleState
+          ? `$${plan.price.monthly}/mo`
+          : `$${plan.price.yearly}/yr`
+      );
+  
+      // Assert that both card title and subtitle are present for each plan
+      expect(cardTitle).toBeInTheDocument();
+      expect(cardSubtitle).toBeInTheDocument();
+    });
+});
 
 });
