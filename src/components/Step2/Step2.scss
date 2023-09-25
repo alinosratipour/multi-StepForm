@@ -8,6 +8,29 @@
   
 }
 
+// .on {
+//   color: hsl(213, 96%, 18%);
+// }
+// .off {
+//   color: #ccc;
+// }
+
+.monthly-option {
+  display: block; /* Initially show the Monthly option */
+  color: hsl(213, 96%, 18%);
+}
+
+.yearly-option {
+  display: block; /* Initially show the Yearly option */
+  color: #ccc;
+}
+
+/* Style the Yearly option when Monthly is selected */
+.monthly-option.on + .yearly-option {
+  color: #ccc;
+  
+}
+
 @media screen and (max-width: 768px) {
   .step2-container {
     font-weight: 900;
