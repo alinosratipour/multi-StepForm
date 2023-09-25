@@ -49,6 +49,46 @@
   font-size: 1.9rem;
   font-weight: bolder;
 }
+
+// step3
+.add-on-box {
+  border: 1px solid hsl(229, 24%, 87%);
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.add-on-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-on-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.add-on-desciption {
+  font-size: 14px;
+  font-weight: 200;
+
+  color: hsl(231, 11%, 63%);
+  padding-top: 5px;
+}
+.name-and-desciption {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-left: 10px;
+}
+.add-on-price {
+  color: hsl(243, 100%, 62%);
+  font-size: 11px;
+}
+.add-on-container {
+  padding-top: 30px;
+}
+
 @media screen and (max-width: 768px) {
   .checkbox-container {
     padding-right: 20px;
