@@ -2,7 +2,7 @@ import React from "react";
 import { useAddonsContext } from "../../context/AddonsContext";
 import "./Step4.scss";
 
-interface Step4Props {
+export interface Step4Props {
   selectedPlanPrice: number;
   planType: string;
   selectedPlanName: string;
@@ -53,7 +53,7 @@ const Step4: React.FC<Step4Props> = ({
               <div className="addons-list">
                 {selectedAddOns && selectedAddOns.map((addon) => (
                   <div key={addon.name} className="addonContent">
-                    <span>{addon.name}</span>
+                    <span className="addon-name">{addon.name}</span>
                     <span>
                       <span>
                         $
