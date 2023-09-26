@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 
-interface Addon {
+export interface Addon {
   name: string;
   description: string;
   price: {
