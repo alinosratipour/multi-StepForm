@@ -1,9 +1,8 @@
 import Step4, { Step4Props } from "./Step4";
 import "@testing-library/jest-dom";
-import { getByText, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { AddonsProvider } from "../../context/AddonsContext";
 import { addOns } from "../../data/addOns";
-import { debug } from "console";
 
 describe("Step 4 Component", () => {
   let props: Step4Props;
