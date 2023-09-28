@@ -1,25 +1,19 @@
-// label{
-//     display: flex;
-//     flex-direction: column;
-//     padding-top: 30px;
-// }
-// input{
-//     padding: 15px;
-//     margin-top: 10px;
-//     border-radius: 5px;
-//     border: 1px;
-//     border-color: #dbdadf;
-//     border: 1px solid #ccc;
-//     outline: none;
-//     width: 85%;
-// }
+.label {
+  font-family: UbuntuRegular;
+  font-size: 14px;
+  font-weight: 200;
+}
 
-.input-small{
-    width: 30%;
-  }
-  .input-medium{
-    width: 50%;
-  }
-  .input-large{
-    width: 90%;
-  }
+input[type="email"]:focus {
+  border: 1px solid #0451a9;
+}
+
+.input-small {
+  width: 30%;
+}
+.input-medium {
+  width: 50%;
+}
+.input-large {
+  width: 90%;
+}

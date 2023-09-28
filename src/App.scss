@@ -1,5 +1,14 @@
 @font-face {
-    font-family:headerFont ;
-    src: url('./assets/fonts/Ubuntu-Bold.ttf') format('woff');
-    src: url('./assets/fonts/Ubuntu-Regular.ttf') format('woff')
-  }
+  font-family: UbuntuRegular;
+  src: url("./assets/fonts/Ubuntu-Regular.ttf") format("woff");
+}
+
+@font-face {
+  font-family: UbuntuBold;
+  src: url("./assets/fonts/Ubuntu-Bold.ttf") format("woff");
+}
+
+@font-face {
+  font-family: UbuntuMedium;
+  src: url("./assets/fonts/Ubuntu-Medium.ttf") format("woff");
+}
