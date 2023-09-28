@@ -89,6 +89,8 @@ const Step2: React.FC<Step2Props> = ({
             </If>
           </Card>
         ))}
+      
+      
       </div>
 
       <div className="toggleContainer">

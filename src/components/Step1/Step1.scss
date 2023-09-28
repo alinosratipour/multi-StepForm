@@ -1,10 +1,13 @@
+.step1-container{
+  height: 370px;
+}
 .step1-header {
   text-align: left;
-  padding-top: 30px;
+ // padding-top: 30px;
   font-size: 32px;
   padding-left: 20px;
   font-weight: 700;
-  color:#002855;
+  color: #002855;
   font-family: UbuntuBold;
 }
 .step1-subheader {
@@ -12,15 +15,14 @@
   text-align: left;
   font-weight: 100;
   font-family: UbuntuRegular;
-    padding-top: 8px;
-   color: #aaabaf;
- 
+  padding-top: 8px;
+  color: #aaabaf;
 }
+
 
 @media screen and (max-width: 768px) {
   .step1-container {
     border-radius: 12px;
-    
   }
 
   .step1-header {

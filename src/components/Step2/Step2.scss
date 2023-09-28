@@ -1,19 +1,27 @@
 .step2-container {
- margin-top: 40px;
- 
+height: 370px;
+//  padding-bottom: 30px;
 }
 
-.step2-header{
-  font-size: 1.6rem;
-  
+.toggleContainer{
+  font-family: UbuntuMedium;
+  font-size: 14px;
+}
+.cardContaier{
+  padding-top: 40px;
+}
+.step2-header {
+  font-size: 32px;
+  color: #002855;
+  font-family: UbuntuBold;
 }
 
-// .on {
-//   color: hsl(213, 96%, 18%);
-// }
-// .off {
-//   color: #ccc;
-// }
+.step2-sub-header {
+  font-weight: 100;
+  font-family: UbuntuRegular;
+  padding-top: 8px;
+  color: #aaabaf;
+}
 
 .monthly-option {
   display: block; /* Initially show the Monthly option */
@@ -28,7 +36,6 @@
 /* Style the Yearly option when Monthly is selected */
 .monthly-option.on + .yearly-option {
   color: #ccc;
-  
 }
 
 @media screen and (max-width: 768px) {
@@ -38,17 +45,11 @@
     padding-top: 20px;
     font-size: 0.9rem;
     margin-top: 0px;
-   
   }
-  .step2-header{
+  .step2-header {
     height: 0px;
-    
   }
-  .step2-sub-header{
+  .step2-sub-header {
     width: 90%;
   }
 }
-
-
-
-
