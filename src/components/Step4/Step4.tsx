@@ -18,12 +18,14 @@ const Step4: React.FC<Step4Props> = ({
   const { selectedAddOns } = useAddonsContext();
 
   // Calculate the total price by summing up selected add-ons and selected plan price
-  const totalSelectedPrice =selectedAddOns ? selectedAddOns.reduce((total, addon) => {
-    return (
-      total +
-      (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
-    );
-  }, selectedPlanPrice): 0;
+  const totalSelectedPrice = selectedAddOns
+    ? selectedAddOns.reduce((total, addon) => {
+        return (
+          total +
+          (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
+        );
+      }, selectedPlanPrice)
+    : 0;
 
   return (
     <div className="summary">
@@ -40,8 +42,7 @@ const Step4: React.FC<Step4Props> = ({
                 {planType === "monthly" ? "Monthly" : "Yearly"})
               </div>
               <div className="plan-price">
-               ${selectedPlanPrice}/
-                {planType === "monthly" ? "mo" : "yr"}
+                ${selectedPlanPrice}/{planType === "monthly" ? "mo" : "yr"}
               </div>
             </div>
             <a className="link" onClick={onJumpToStep2}>
@@ -51,30 +52,31 @@ const Step4: React.FC<Step4Props> = ({
             {/* Display selected add-ons */}
             <div className="item-name">
               <div className="addons-list">
-                {selectedAddOns && selectedAddOns.map((addon) => (
-                  <div key={addon.name} className="addonContent">
-                    <span className="addon-name">{addon.name}</span>
-                    <span>
+                {selectedAddOns &&
+                  selectedAddOns.map((addon) => (
+                    <div key={addon.name} className="addonContent">
+                      <span className="addon-name">{addon.name}</span>
+
                       <span>
                         $
                         {planType === "monthly"
                           ? `${addon.price.monthly}/mo`
                           : `${addon.price.yearly}/yr`}
                       </span>
-                    </span>
-                  </div>
-                ))}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* Display the total price below */}
+     
       <div className="price-container">
         <span className="total-text">
           Total ( {planType === "monthly" ? "per month" : "per year"})
         </span>
-        <span className="total">
+        <span className="total" data-testid="total">
           +${totalSelectedPrice}/{planType === "monthly" ? "mo" : "yr"}
         </span>
       </div>
