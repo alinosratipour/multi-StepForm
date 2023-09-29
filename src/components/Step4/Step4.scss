@@ -5,38 +5,50 @@
   border-radius: 10px;
 }
 
-.planPrice {
-  padding-bottom: 10px;
-}
 .step4-subheader {
-  padding-bottom: 30px;
   font-weight: 100;
+  font-family: UbuntuRegular;
+  padding-top: 8px;
+  color: #aaabaf;
+  padding-bottom: 40px;
 }
 .step4-header {
-  font-size: 1.9rem;
-  font-weight: bolder;
+  font-size: 32px;
+  color: #002855;
+  font-family: UbuntuBold;
 }
+
 .link {
-  font-family: headerFont;
+  font-family: UbuntuRegular;
+  font-size: 16px;
   color: #aaabaf;
-  font-weight: 900;
+  font-weight: 400;
   text-decoration: none;
   cursor: pointer;
   height: 0px;
-  font-size: 16px;
   margin-top: 8px;
-  
 }
-.line{
- margin-top: 10px;
+
+.link:hover {
+  border-bottom: 2px solid hsl(243, 71%, 54%);
+  padding-bottom: 1px;
+}
+.line {
+  margin-top: 25px;
+  height: 1px;
+  background-color: #dcdde1;
+  border: none;
 }
 .addons-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   color: hsl(231, 11%, 63%);
-  font-family: headerFont;
+  font-family: UbuntuRegular;
   font-size: 14px;
+}
+.addon-price {
+  color: #002855;
 }
 .addonContent {
   display: flex;
@@ -50,6 +62,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 10px;
+  font-family: UbuntuMedium;
+  font-weight: 600;
 }
 .price-container {
   display: flex;
@@ -60,36 +75,39 @@
   font-size: 1.2rem;
 }
 .total-text {
-  color: hsl(231, 11%, 63%);
+  color: #aaabaf;
   font-size: 14px;
+  font-family: UbuntuRegular;
+  font-weight: 200;
+  margin-left: 20px;
 }
 
 .confirmation-message {
-  font-family: headerFont;
+  font-family: UbuntuRegular;
   padding-top: 10px;
-  color: hsl(229, 6%, 65%);
+  color: hsl(231, 12%, 79%);
   font-weight: 900;
-  font-size: 0.9rem;
+  font-size: 16px;
   line-height: 25px;
 }
 .thank-message-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50%;
-  margin-bottom: 50%;
   width: 90%;
   text-align: center;
+  margin-top: 120px;
 }
 
 .step-4-thanks {
   padding-top: 20px;
-  font-size: 1.9rem;
-  font-size: 1.6rem;
+  font-size: 30px;
+  color: #002855;
+  font-family: UbuntuMedium;
+  padding-bottom: 10px;
 }
-.summary {
-  margin-top: 40px;
+.step-4-container {
+  height: 370px;
+}
+.total {
+  font-family: UbuntuMedium;
 }
 @media screen and (max-width: 768px) {
   .line {
@@ -176,7 +194,7 @@
     gap: 15px;
   }
 
-  .summary {
+  .step-4-container {
     margin-top: 0px;
   }
 }

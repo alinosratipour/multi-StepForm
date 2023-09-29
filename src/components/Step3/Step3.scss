@@ -42,51 +42,22 @@
 }
 
 .step3-container {
-  margin-top: 40px;
+  height: 370px;
 }
 
 .step3-header {
-  font-size: 1.9rem;
+  font-size: 32px;
   font-weight: bolder;
+  font-weight: 700;
+  color: #002855;
+  font-family: UbuntuBold;
 }
 
-// step3
-.add-on-box {
-  border: 1px solid hsl(229, 24%, 87%);
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 10px;
-}
-
-.add-on-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.add-on-name {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.add-on-desciption {
-  font-size: 14px;
-  font-weight: 200;
-
-  color: hsl(231, 11%, 63%);
-  padding-top: 5px;
-}
-.name-and-desciption {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  padding-left: 10px;
-}
-.add-on-price {
-  color: hsl(243, 100%, 62%);
-  font-size: 11px;
-}
-.add-on-container {
-  padding-top: 30px;
+.step3-subheader {
+  font-family: UbuntuRegular;
+  color: #aaabaf;
+  font-weight: 100;
+  padding-top: 8px;
 }
 
 @media screen and (max-width: 768px) {

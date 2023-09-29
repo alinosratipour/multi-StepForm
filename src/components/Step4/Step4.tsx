@@ -28,7 +28,7 @@ const Step4: React.FC<Step4Props> = ({
     : 0;
 
   return (
-    <div className="summary">
+    <div className="step-4-container">
       <h1 className="step4-header">Finishing up</h1>
       <p className="step4-subheader">
         Double-check everything looks OK before confirming.
@@ -57,7 +57,7 @@ const Step4: React.FC<Step4Props> = ({
                     <div key={addon.name} className="addonContent">
                       <span className="addon-name">{addon.name}</span>
 
-                      <span>
+                      <span className="addon-price">
                         $
                         {planType === "monthly"
                           ? `${addon.price.monthly}/mo`
