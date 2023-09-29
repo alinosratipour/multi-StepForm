@@ -1,10 +1,11 @@
+
 import {
   ButtonHTMLAttributes,
   ForwardRefRenderFunction,
   ReactElement,
 } from "react";
 import "./Button.scss";
-import React from "react";
+import React, { forwardRef }from "react";
 import classNames from "classnames";
 
 interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -56,6 +57,6 @@ const NewButton: ForwardRefRenderFunction<HTMLButtonElement, ButtonType> = (
   );
 };
 
-const CustomButton = React.forwardRef(NewButton);
+const CustomButton = forwardRef(NewButton);
 
 export default CustomButton;

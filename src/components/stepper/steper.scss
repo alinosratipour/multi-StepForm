@@ -1,7 +1,7 @@
 .circle {
   display: flex;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
   justify-content: center;
   align-items: center;
@@ -40,15 +40,15 @@
 }
 
 .stepNumberText {
-  font-family: headerFont;
+  font-family: UbuntuRegular;
   color: #bab4b4;
   font-size: 12px;
 }
 
 .stepInfo {
-  font-family: headerFont;
+  font-family: UbuntuMedium;
   color: white;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   padding-top: 5px;
   letter-spacing: 1px;

@@ -2,7 +2,7 @@ import React from "react";
 import { useAddonsContext } from "../../context/AddonsContext";
 import "./Step4.scss";
 
-interface Step4Props {
+export interface Step4Props {
   selectedPlanPrice: number;
   planType: string;
   selectedPlanName: string;
@@ -18,15 +18,17 @@ const Step4: React.FC<Step4Props> = ({
   const { selectedAddOns } = useAddonsContext();
 
   // Calculate the total price by summing up selected add-ons and selected plan price
-  const totalSelectedPrice = selectedAddOns.reduce((total, addon) => {
-    return (
-      total +
-      (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
-    );
-  }, selectedPlanPrice);
+  const totalSelectedPrice = selectedAddOns
+    ? selectedAddOns.reduce((total, addon) => {
+        return (
+          total +
+          (planType === "monthly" ? addon.price.monthly : addon.price.yearly)
+        );
+      }, selectedPlanPrice)
+    : 0;
 
   return (
-    <div className="summary">
+    <div className="step-4-container">
       <h1 className="step4-header">Finishing up</h1>
       <p className="step4-subheader">
         Double-check everything looks OK before confirming.
@@ -40,8 +42,7 @@ const Step4: React.FC<Step4Props> = ({
                 {planType === "monthly" ? "Monthly" : "Yearly"})
               </div>
               <div className="plan-price">
-               ${selectedPlanPrice}/
-                {planType === "monthly" ? "mo" : "yr"}
+                ${selectedPlanPrice}/{planType === "monthly" ? "mo" : "yr"}
               </div>
             </div>
             <a className="link" onClick={onJumpToStep2}>
@@ -51,30 +52,31 @@ const Step4: React.FC<Step4Props> = ({
             {/* Display selected add-ons */}
             <div className="item-name">
               <div className="addons-list">
-                {selectedAddOns.map((addon) => (
-                  <div key={addon.name} className="addonContent">
-                    <span>{addon.name}</span>
-                    <span>
-                      <span>
+                {selectedAddOns &&
+                  selectedAddOns.map((addon) => (
+                    <div key={addon.name} className="addonContent">
+                      <span className="addon-name">{addon.name}</span>
+
+                      <span className="addon-price">
                         $
                         {planType === "monthly"
                           ? `${addon.price.monthly}/mo`
                           : `${addon.price.yearly}/yr`}
                       </span>
-                    </span>
-                  </div>
-                ))}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* Display the total price below */}
+     
       <div className="price-container">
         <span className="total-text">
           Total ( {planType === "monthly" ? "per month" : "per year"})
         </span>
-        <span className="total">
+        <span className="total" data-testid="total">
           +${totalSelectedPrice}/{planType === "monthly" ? "mo" : "yr"}
         </span>
       </div>

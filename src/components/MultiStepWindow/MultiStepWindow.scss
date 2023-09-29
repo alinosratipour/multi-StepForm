@@ -4,20 +4,6 @@
   margin: 0;
 }
 
-body {
-  font-size: 16px;
-}
-
-h1 {
-  color: #002855;
-  font-family: headerFont;
-}
-p {
-  padding-top: 8px;
-  color: #aaabaf;
-  font-family: headerFont;
-}
-
 .container {
   width: 100%;
   background-color: hsl(217, 100%, 97%);
@@ -36,16 +22,16 @@ p {
   border-radius: 15px;
   gap: 100px;
   padding-right: 60px;
-  //max-width: 940px;
   width: 940px;
-  //min-height: 650px;
-  height: 650px;
+  height: 568px;
+ // position: fixed;
 }
 .form-right-side {
   display: flex;
   flex-direction: column;
   width: 100%;
   flex: 2;
+  margin-top: 40px;
 }
 
 .form-header {
@@ -65,16 +51,12 @@ p {
 }
 
 .form-text-fields-container {
-  font-family: headerFont;
   color: hsl(213, 96%, 18%);
-  font-weight: 700;
-  font-size: 16px;
-  //  min-height: 400px;
   width: 95%;
 }
 
 .button-wrapper {
-  padding-top: 90px;
+  padding-top: 60px;
   text-align: right;
   display: flex;
   justify-content: space-between;
@@ -92,7 +74,7 @@ p {
   display: none;
 }
 .back {
-  font-family: headerFont;
+  font-family: UbuntuRegular;
   color: #aaabaf;
   font-weight: 900;
   text-decoration: none;
@@ -119,58 +101,6 @@ p {
   height: 50px;
   gap: 20px;
 }
-.on {
-  color: hsl(213, 96%, 18%);
-}
-.off {
-  color: #ccc;
-}
-
-.add-on-container {
-  padding-top: 30px;
-}
-// step3
-.add-on-box {
-  border: 1px solid hsl(229, 24%, 87%);
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 10px;
-}
-
-.add-on-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.add-on-name {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.add-on-desciption {
-  font-size: 14px;
-  font-weight: 200;
-
-  color: hsl(231, 11%, 63%);
-  padding-top: 5px;
-}
-.name-and-desciption {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  padding-left: 10px;
-}
-.add-on-price {
-  color: hsl(243, 100%, 62%);
-  font-size: 11px;
-}
-
-.messageContainer {
-  margin-top: 140px;
-  text-align: center;
-}
-
-
 
 /* When the browser is at least 768px and above */
 @media screen and (max-width: 768px) {
@@ -190,6 +120,7 @@ p {
     top: 0;
     min-height: 400px;
     height: 400px;
+  
   }
   .form-container {
     padding-top: 60px;

@@ -2,6 +2,7 @@ import "./App.scss";
 import MultiStepWindow from "./components/MultiStepWindow/MultiStepWindow";
 import { AddonsProvider } from "./context/AddonsContext";
 
+
 function App() {
   return (
     

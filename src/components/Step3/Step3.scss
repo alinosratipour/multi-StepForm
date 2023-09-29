@@ -42,13 +42,24 @@
 }
 
 .step3-container {
-  margin-top: 40px;
+  height: 370px;
 }
 
 .step3-header {
-  font-size: 1.9rem;
+  font-size: 32px;
   font-weight: bolder;
+  font-weight: 700;
+  color: #002855;
+  font-family: UbuntuBold;
 }
+
+.step3-subheader {
+  font-family: UbuntuRegular;
+  color: #aaabaf;
+  font-weight: 100;
+  padding-top: 8px;
+}
+
 @media screen and (max-width: 768px) {
   .checkbox-container {
     padding-right: 20px;

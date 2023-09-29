@@ -9,13 +9,15 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["vite/client", "@testing-library/jest-dom", "jest","node"],
+    
   },
-  "include": ["src"],
+  "include": ["src", "__ mocks __"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

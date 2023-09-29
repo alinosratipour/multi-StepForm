@@ -2,12 +2,11 @@
   min-width: 50px;
   width: auto;
   padding: 10px;
-  // font-size: 16px;
   background-color: hsl(187, 94%, 52%);
   color: white;
-  font-family: headerFont;
+  font-family: UbuntuMedium;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-right: 60px;
   cursor: pointer;
 
@@ -16,37 +15,34 @@
     justify-content: center;
     align-items: center;
     height: 0;
-  
   }
-  
+
   // button sizes
   &.button--small {
-    height:40px;
+    height: 40px;
     width: 100px;
     font-size: 12px;
-   
   }
   &.button--medium {
-    height: 40px;
-    width: 110px;
-    font-size: 14px;
-
+    height: 50px;
+    width: 120px;
+    font-size: 16px;
   }
   &.button--large {
     height: 50px;
     width: 160px;
     font-size: 16px;
-   
   }
 
   // button colorScheme
   &.button--primary {
     background-color: hsl(213, 96%, 18%);
+    opacity: 1;
 
-    // &:hover {
-    //   background-color: #357ae8;
-    //   border: none;
-    // }
+    &:hover {
+      opacity: 0.8;
+      border: none;
+    }
   }
 
   &.button--secondery {
@@ -68,4 +64,3 @@
     cursor: not-allowed;
   }
 }
-

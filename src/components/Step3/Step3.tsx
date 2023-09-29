@@ -4,7 +4,7 @@ import { addOns } from "../../data/addOns";
 import { useAddonsContext } from "../../context/AddonsContext";
 import "./Step3.scss";
 
-interface Step3Props {
+export interface Step3Props {
   planType: string;
   toggleState: boolean;
   selectedCard: number;
@@ -57,7 +57,9 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
   return (
     <div className="step3-container">
       <h1 className="step3-header">Pick add-ons</h1>
-      <p className="step3-subheader">Add-ons help enhance your gaming experience.</p>
+      <p className="step3-subheader">
+        Add-ons help enhance your gaming experience.
+      </p>
 
       <div className="add-on-container">
         {addOns.map((item) => {
@@ -65,11 +67,11 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
             planType === "monthly" ? item.price.monthly : item.price.yearly;
           const formattedPrice =
             planType === "monthly" ? `+$${price}/mo` : `+$${price}/yr`;
-          const isSelected = selectedAddOns.some(
-            (addon) => addon.name === item.name
-          );
+          const isSelected =
+            selectedAddOns &&
+            selectedAddOns.some((addon) => addon.name === item.name);
           const isHighlighted = isSelected;
-
+          //const isSelected = selectedAddOns && selectedAddOns.some(/
           return (
             <PlanCard
               key={item.name}
@@ -78,6 +80,7 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
               price={formattedPrice}
               onClick={() => toggleAddOnSelection(item)}
               colorscheme={isHighlighted ? "primary" : undefined}
+              data-addon-id={`addon-card-${item.name}`}
             >
               <div className="checkbox-container">
                 <input
@@ -85,6 +88,7 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
                   className="checkbox"
                   checked={isSelected}
                   onChange={() => toggleAddOnSelection(item)}
+                  data-testid="addOn-checkBox"
                 />
               </div>
             </PlanCard>
