@@ -72,7 +72,7 @@ const Step3: React.FC<Step3Props> = ({ planType }) => {
             selectedAddOns &&
             selectedAddOns.some((addon) => addon.name === item.name);
           const isHighlighted = isSelected;
-          //const isSelected = selectedAddOns && selectedAddOns.some(/
+    
           return (
             <PlanCard
               key={item.name}

@@ -44,7 +44,7 @@
 }
 
 .subtitle {
-  color: rgb(185, 181, 181);
+  color: var(--secondary-text-color);
   font-family: UbuntuRegular;
   margin-left: 15px;
   font-size: 15px;
@@ -103,6 +103,9 @@
   .subtitle {
     font-size: 13px;
     color: var(--secondary-text-color);
+    text-align: left;
+    margin-left: 12px;
+  
   }
   .step2-sub-header {
     padding: 20px;
@@ -116,6 +119,9 @@
   .titleWrapper {
     flex-direction: column;
     align-items: flex-start;
+    
+
+
   }
 
   .yearlyOffer {
