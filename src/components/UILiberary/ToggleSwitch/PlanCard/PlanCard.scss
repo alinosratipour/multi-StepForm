@@ -1,12 +1,14 @@
 // step3
 .add-on-container {
   padding-top: 30px;
+
 }
 .add-on-box {
   border: 1px solid hsl(229, 24%, 87%);
   margin-top: 15px;
   border-radius: 10px;
   cursor: pointer;
+
 }
 
 .add-on-contents {
@@ -29,19 +31,13 @@
 }
 .add-on-desciption {
   font-size: 15px;
-  font-weight: 200;
+  font-weight: 400;
   font-family: UbuntuRegular;
   color: hsl(231, 11%, 63%);
   padding-top: 5px;
 }
 
-// step3
-.add-on-box {
-  border: 1px solid hsl(229, 24%, 87%);
-  margin-top: 15px;
-  padding: 20px;
-  border-radius: 10px;
-}
+
 
 .add-on-price {
   color: hsl(243, 100%, 62%);
@@ -59,23 +55,35 @@
     display: flex;
     justify-content: left;
     text-align: left;
+  
   }
 
   .add-on-box {
     border: 1px solid hsl(229, 24%, 87%);
     margin-top: 10px;
-    padding: 18px;
+    padding: 12px;
     border-radius: 10px;
     cursor: pointer;
-    width: 90%;
+    width: 100%;
   }
 
   .add-on-name {
     font-size: 14px;
     font-weight: 800;
     text-align: left;
+    font-family: UbuntuMedium;
   }
   .add-on-container {
     padding-top: 10px;
+    
+  
   }
+  .add-on-desciption {
+    font-size: 12px;
+    font-weight: 200;
+    font-family: UbuntuMedium;
+    color: var(--secondary-text-color);
+    padding-top: 5px;
+  }
+ 
 }
