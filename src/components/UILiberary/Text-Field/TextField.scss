@@ -13,7 +13,7 @@ input {
   outline: none;
   width: 85%;
   font-weight: 700;
-  color:#002855;
+  color:var(--primary-text-color);
   font-family: UbuntuRegular;
 }
 input[type=text]:focus {

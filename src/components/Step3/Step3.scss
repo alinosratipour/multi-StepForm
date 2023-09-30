@@ -49,13 +49,13 @@
   font-size: 32px;
   font-weight: bolder;
   font-weight: 700;
-  color: #002855;
+  color: var(--primary-text-color);
   font-family: UbuntuBold;
 }
 
 .step3-subheader {
   font-family: UbuntuRegular;
-  color: #aaabaf;
+  color: var(--secondary-text-color);
   font-weight: 100;
   padding-top: 8px;
 }
@@ -72,7 +72,7 @@
   }
 
   .step3-container {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     margin: auto;
     width: 90%;
     border-radius: 15px;
@@ -95,5 +95,4 @@
     padding-left: 20px;
     text-align: left;
   }
-  
 }

@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  color: #fff;
+  color: var(--white-color);
   border: 1px solid white;
 }
 
@@ -17,7 +17,7 @@
   margin-left: 30px;
   margin-top: 50px;
   padding-right: 20px;
-  color: #bab4b4;
+  color: var(--secondary-text-color);
   font-size: 15px;
 }
 .stepBlock {
@@ -41,13 +41,13 @@
 
 .stepNumberText {
   font-family: UbuntuRegular;
-  color: #bab4b4;
+  color: var(--secondary-text-color);
   font-size: 12px;
 }
 
 .stepInfo {
   font-family: UbuntuMedium;
-  color: white;
+  color: var(--white-color);
   font-size: 13px;
   font-weight: 900;
   padding-top: 5px;
@@ -62,16 +62,13 @@
     gap: 1px;
     justify-content: center;
     align-items: center;
-  padding-bottom: 60px;
-  margin-bottom: 40px;
-
+    padding-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .stepBlock {
     display: flex;
     gap: 20px;
-
-    
   }
 
   .stepInfo {
@@ -89,7 +86,7 @@
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    color: #fff;
-    border: 1px solid white;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
   }
 }
