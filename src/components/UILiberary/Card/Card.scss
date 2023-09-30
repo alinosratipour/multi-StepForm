@@ -10,10 +10,10 @@
   flex-direction: column;
   justify-content: space-between;
   width: 30%;
-  min-height: 140px;
+  min-height: 150px;
   padding-bottom: 17px;
   max-height: 160px;
-
+  position: relative;
   &.cardWrapper:hover {
     cursor: pointer;
     border: 1.6px solid hsl(243, 100%, 62%);
@@ -21,7 +21,7 @@
 }
 
 .image {
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
   padding-left: 15px;
   height: 60px;
@@ -29,16 +29,20 @@
 }
 
 .CardTitle {
-  font-family: UbuntuRegular;
+  font-family: UbuntuMedium;
   margin-left: 15px;
-  margin-top: 40px;
+  margin-top: 20px;
+  color: var(--primary-text-color);
+  font-weight: 400;
 }
 
 .titleWrapper {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 22px;
 }
+
 .subtitle {
   color: rgb(185, 181, 181);
   font-family: UbuntuRegular;
@@ -46,20 +50,21 @@
   font-size: 15px;
   font-weight: 200;
 }
-.cardContaier {
+.cardContainer {
   display: flex;
   gap: 20px;
 }
 
-.yearlyOffer {
-  margin-left: 15px;
-  color: hsl(213, 96%, 18%);
-  font-size: 13px;
-  font-weight: 300;
-  font-family: UbuntuRegular;
-}
 .bg--color {
   background-color: hsl(231, 100%, 99%);
+}
+
+.yearlyOffer {
+  font-family: UbuntuMedium;
+  font-size: 10px;
+  color: var(--primary-text-color);
+  margin-left: 12px;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
@@ -70,28 +75,21 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 30px;
     width: 90%;
-    min-height: 30px;
+    min-height: 90px;
     margin: auto;
+    position: relative;
+    overflow: hidden;
   }
 
-  .cardContaier {
-    display: flex;
+  .cardContainer {
     flex-direction: column;
-    //gap: 10px;
-
-    // margin:auto;
-  }
-
-  .titleWrapper {
-    // flex-direction: column;
-    // gap: 5px;
+    margin-top: -35px;
   }
 
   .CardTitle {
     font-weight: 900;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-top: 20px;
   }
 
@@ -104,6 +102,7 @@
   }
   .subtitle {
     font-size: 13px;
+    color: var(--secondary-text-color);
   }
   .step2-sub-header {
     padding: 20px;
@@ -111,6 +110,24 @@
 
   .step2-header {
     font-size: 1.4rem;
-    padding: 20px;
+    margin-top: 15px;
+  }
+
+  .titleWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .yearlyOffer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    font-family: UbuntuMedium;
+    font-size: 13px;
+    color: var(--primary-text-color);
+    margin-left: 70px;
+    font-weight: 400;
+    margin-bottom: 16px;
   }
 }

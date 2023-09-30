@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "../UILiberary/Text-Field/TextField";
 import EmailField from "../UILiberary/Email-Field/EmailField";
-import  "./Step1.scss";
+import "./Step1.scss";
 
 interface Step1Props {
   values: { [key: string]: string };
@@ -17,11 +17,13 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
   return (
     <div className="step1-container">
       <form>
-        <div>
+        <div className="header-container">
           <h1 className="step1-header">Personal Info</h1>
-          <p className="step1-subheader">Please provide your name, email address, and phone number.</p>
+          <p className="step1-subheader">
+            Please provide your name, email address, and phone number.
+          </p>
         </div>
-
+<div className="text-field-wrapper">
         <TextField
           label="Name"
           name="name"
@@ -31,9 +33,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           error={errors.name}
           errorMessagePosition="above"
           inputSize="large"
-          data-testid="name-field" 
-          
-         
+          data-testid="name-field"
         />
         <EmailField
           label="Email Address"
@@ -44,7 +44,7 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           error={errors.email}
           errorMessagePosition="above"
           inputSize="large"
-          data-testid="email-field" 
+          data-testid="email-field"
         />
         <TextField
           label="Phone Number"
@@ -55,8 +55,9 @@ const Step1: React.FC<Step1Props> = ({ values, errors, handleInputChange }) => {
           error={errors.phone}
           errorMessagePosition="above"
           inputSize="large"
-          data-testid="phone-field" 
+          data-testid="phone-field"
         />
+        </div>
       </form>
     </div>
   );

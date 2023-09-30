@@ -70,7 +70,7 @@ const Step2: React.FC<Step2Props> = ({
       <p className="step2-sub-header">
         You have the option of monthly or yearly billing.
       </p>
-      <div className="cardContaier">
+      <div className="cardContainer">
         {plans.map((item, index) => (
           <Card
             key={index}
@@ -83,10 +83,10 @@ const Step2: React.FC<Step2Props> = ({
             }`}
             colorscheme={index === selectedCard && "primary"}
             onClick={() => handleCardClick(index)}
+           // showYearlyOffer={toggleState}
+            stackContent={true}
           >
-            <If condition={toggleState}>
-              <span className="yearlyOffer">2 months free</span>
-            </If>
+              {toggleState && <span className="yearlyOffer">2 months free</span>}
           </Card>
         ))}
       

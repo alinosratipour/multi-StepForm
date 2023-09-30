@@ -1,4 +1,4 @@
-.step1-container{
+.step1-container {
   height: 370px;
 }
 .step1-header {
@@ -18,10 +18,15 @@
   color: #aaabaf;
 }
 
-
 @media screen and (max-width: 768px) {
   .step1-container {
-    border-radius: 12px;
+    //border-radius: 12px;
+    background-color: #ffffff;
+    margin: auto;
+    width: 90%;
+    border-radius: 15px;
+    margin-top: -115px;
+    height: 400px;
   }
 
   .step1-header {
@@ -31,7 +36,12 @@
     padding-left: 20px;
     font-weight: bolder;
   }
-
+  .header-container {
+    margin-top: 20px;
+  }
+  .text-field-wrapper {
+    margin-top: -20px;
+  }
   .step1-subheader {
     padding-left: 20px;
     text-align: left;

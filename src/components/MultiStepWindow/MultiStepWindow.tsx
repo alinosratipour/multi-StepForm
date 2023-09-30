@@ -105,8 +105,8 @@ const MultiStepWindow = forwardRef(
             ></StepNavigation>
           </div>
           <div className="form-right-side">
-            <div className="form-container">
-              <div className="form-text-fields-container">
+            {/* <div className="form-container"> */}
+              {/* <div className="form-text-fields-container"> */}
                 <If condition={currentStep === 1}>
                   <Step1
                     values={values}
@@ -160,8 +160,8 @@ const MultiStepWindow = forwardRef(
                     </div>
                   </div>
                 </If>
-              </div>
-            </div>
+              {/* </div>
+            </div> */}
 
             <div className={!confirmationClicked ? "button-wrapper" : "hidefooter"}>
               <If condition={!confirmationClicked}>
