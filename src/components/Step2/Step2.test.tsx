@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Step2, { Step2Props } from "./Step2"; // Make sure to import the Step2Props interface
-import { plans } from "../../data/planData"; // Import the plans variable
+import Step2, { Step2Props } from "./Step2"; 
+import { plans } from "../../data/planData"; 
 
 describe("Step2 Component", () => {
   // Mock the necessary props using a beforeEach block

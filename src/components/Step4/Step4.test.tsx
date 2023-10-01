@@ -49,7 +49,6 @@ describe("Step 4 Component", () => {
   });
 
   afterEach(() => {
-    // Add your cleanup or post-test actions here, if needed
     cleanup();
   });
 
