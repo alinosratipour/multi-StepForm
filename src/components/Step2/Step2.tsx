@@ -83,14 +83,11 @@ const Step2: React.FC<Step2Props> = ({
             }`}
             colorscheme={index === selectedCard && "primary"}
             onClick={() => handleCardClick(index)}
-           // showYearlyOffer={toggleState}
             stackContent={true}
           >
-              {toggleState && <span className="yearlyOffer">2 months free</span>}
+            {toggleState && <span className="yearlyOffer">2 months free</span>}
           </Card>
         ))}
-      
-      
       </div>
 
       <div className="toggleContainer">

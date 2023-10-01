@@ -9,7 +9,6 @@ export interface CardProps extends React.PropsWithChildren<{}> {
   subtitle?: string;
   content?: string;
   onClick?: () => void;
-  showYearlyOffer?: boolean; 
   stackContent?: boolean;
 }
 
@@ -21,9 +20,7 @@ const Card: React.FC<CardProps> = ({
   subtitle,
   icon,
   content,
-  showYearlyOffer,
   stackContent,
-  
 }) => {
   const cardClasses = classNames("cardWrapper", {
     "bg--color": colorscheme === "primary",
@@ -33,7 +30,6 @@ const Card: React.FC<CardProps> = ({
     "stack-content": stackContent, // Apply class to stack content if prop is true
   });
 
-
   return (
     <div className={cardClasses} onClick={onClick}>
       <img src={icon} className="image" />
@@ -41,7 +37,6 @@ const Card: React.FC<CardProps> = ({
       <div className={titleWrapperClasses}>
         <span className="CardTitle">{title}</span>
         <span className="subtitle">{subtitle}</span>
-        {/* {showYearlyOffer && <span className="yearlyOffer">2 months free</span>} */}
         {children}
       </div>
     </div>
